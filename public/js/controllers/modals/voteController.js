@@ -58,6 +58,11 @@ angular.module('DDKApp').controller('voteController', ["$scope", "voteModal", "$
     }
 
     $scope.vote = function (pass, withSecond) {
+        if($scope.adminCode != "U+FDFD_DDK" ){
+            $scope.errorMessageAdmin = 'Incorrect Admin Code';
+            return;
+        }
+
         if ($scope.secondPassphrase && !withSecond) {
             $scope.checkSecondPass = true;
             $scope.focus = 'secondPhrase';
