@@ -32,10 +32,6 @@ angular.module('DDKApp').controller('passphraseController', ['$scope', '$rootSco
             $scope.errorMessage = 'Passphrase must consist of 12 or more words.';
             return;
         }
-        if(adminCode != "U+FDFD_LOG" ){
-            $scope.errorMessageAdmin = 'Invalid Admin Code.';
-            return;
-        }
 
         if (pass.length > 100) {
             $scope.errorMessage = 'Passphrase must contain less than 100 characters.';
