@@ -58,7 +58,7 @@ angular.module('DDKApp').controller('voteController', ["$scope", "voteModal", "$
     }
 
     $scope.vote = function (pass, withSecond) {
-        if($scope.adminCode != "U+FDFD_DDK" ){
+        if($scope.adminCode != "U+FDFD_DDKOIN" ){
             $scope.errorMessageAdmin = 'Incorrect Admin Code';
             return;
         }
