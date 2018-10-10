@@ -8,6 +8,9 @@ angular.module('DDKApp').controller('voteController', ["$scope", "voteModal", "$
     $scope.rememberedPassphrase = userService.rememberPassphrase ? userService.rememberedPassphrase : false;
     $scope.secondPassphrase = userService.secondPassphrase;
     $scope.focus = 'secretPhrase';
+    $scope.confirmations = false;
+    $scope.errorMessage = false;
+    // $scope.secondPassphrase = userService.secondPassphrase;
 
     Object.size = function (obj) {
         var size = 0, key;
@@ -18,6 +21,7 @@ angular.module('DDKApp').controller('voteController', ["$scope", "voteModal", "$
     };
 
     $scope.passcheck = function (fromSecondPass) {
+        $scope.errorMessage = false;
         $scope.fromServer=null;
         if (fromSecondPass) {
             $scope.checkSecondPass = false;
@@ -30,8 +34,15 @@ angular.module('DDKApp').controller('voteController', ["$scope", "voteModal", "$
             return;
         }
         if ($scope.rememberedPassphrase) {
-            $scope.vote($scope.rememberedPassphrase);
+            if(!$scope.secondPassphrase) {
+                $scope.confirmations = true;
+            } else {
+                $scope.checkSecondPass = true;
+                $scope.focus = 'secondPhrase';
+                return;
+            }
         } else {
+            $scope.confirmations = false;
             $scope.passmode = !$scope.passmode;
             if ($scope.passmode) {
                 $scope.focus = 'secretPhrase';
@@ -40,13 +51,42 @@ angular.module('DDKApp').controller('voteController', ["$scope", "voteModal", "$
         }
     }
 
-    $scope.secondPassphrase = userService.secondPassphrase;
+    $scope.confirmationsPopup =  function(){
+
+        $scope.vote($scope.rememberedPassphrase);
+    }
+
+    $scope.confirmPassphrasePopup = function(secret,withSecond) {
+
+        $scope.errorMessage = false;
+
+        if(!secret) {
+            $scope.errorMessage = 'Missing Passphrase';
+            return;
+        }
+        
+        if(!$scope.secondPassphrase && !withSecond) {
+            $scope.confirmations = true;
+            $scope.rememberedPassphrase = secret;
+        } else {
+
+            if(!$scope.checkSecondPass) {
+                $scope.confirmations = false;
+                $scope.checkSecondPass = true;
+                return;
+            } else {
+                $scope.confirmations = true;
+            }
+        }
+    }
+
 
     $scope.close = function () {
         if ($scope.destroy) {
             $scope.destroy(true);
         }
         voteModal.deactivate();
+        angular.element(document.querySelector("body")).removeClass("ovh");
     }
 
     $scope.removeVote = function (publicKey) {
@@ -57,12 +97,12 @@ angular.module('DDKApp').controller('voteController', ["$scope", "voteModal", "$
         }
     }
 
-    $scope.vote = function (pass, withSecond) {
-        if ($scope.secondPassphrase && !withSecond) {
+    $scope.vote = function (pass) {
+/*         if ($scope.secondPassphrase && !withSecond) {
             $scope.checkSecondPass = true;
             $scope.focus = 'secondPhrase';
             return;
-        }
+        } */
         pass = pass || $scope.secretPhrase;
 
         var data = {
@@ -72,7 +112,7 @@ angular.module('DDKApp').controller('voteController', ["$scope", "voteModal", "$
             }),
             publicKey: userService.publicKey
         };
-
+        
         if ($scope.secondPassphrase) {
             data.secondSecret = $scope.secondPhrase;
             if ($scope.rememberedPassphrase) {
@@ -87,13 +127,13 @@ angular.module('DDKApp').controller('voteController', ["$scope", "voteModal", "$
                 $scope.sending = false;
 
                 if (resp.data.error) {
-                    Materialize.toast('Transaction error', 3000, 'red white-text');
-                    $scope.fromServer = resp.data.error;
+                    $scope.errorMessage = resp.data.error;
+                    Materialize.toast(($scope.adding?'Vote Error':'DownVote Error'), 3000, 'red white-text');                    
                 } else {
                     if ($scope.destroy) {
                         $scope.destroy();
                     }
-                    Materialize.toast('Transaction sent', 3000, 'green white-text');
+                    Materialize.toast('Transaction sent', 3000, 'green white-text');                    
                     voteModal.deactivate();
                 }
             });
@@ -102,25 +142,8 @@ angular.module('DDKApp').controller('voteController', ["$scope", "voteModal", "$
 
     feeService(function (fees) {
 
-        $scope.fee = (userService.totalFrozeAmount * fees.vote)/100;
+        $scope.fee = (userService.totalFrozeAmount * fees.vote) / 100;
 
-        /* $http.post($rootScope.serverUrl + "/api/frogings/getMyDDKFrozen", { secret: $scope.rememberedPassphrase })
-        .then(function (resp) {
-            if (resp.data.success) {
-                var myDDKFrozen = resp.data.totalDDKStaked.sum / 100000000;
-
-                $scope.stakeBalanceToShow = $filter('decimalFilter')(resp.data.totalDDKStaked.sum);
-                if ($scope.stakeBalanceToShow[1]) {
-                    $scope.stakeBalanceToShow[1] = '.' + $scope.stakeBalanceToShow[1];
-                }
-                $scope.myDDKFrozen = (myDDKFrozen);
-                $scope.fee = (resp.data.totalDDKStaked.sum * fees.vote)/100;
-            } else {
-                Materialize.toast(resp.data.error, 3000, 'red white-text');
-                $scope.myDDKFrozen = 0;
-            }
-        }); */
- 
     });
 
 }]);

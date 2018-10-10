@@ -42,8 +42,7 @@
                                                 <label for="email">
                                                     <translate>Email</translate>
                                                 </label>
-                                                <a tooltip-placement="left" class="btn btn-white waves-effect email-info"
-                                                    tooltip="Email is not required for new user. However, if you enter your email in the column you will receive a welcome email only 1 time for information regarding your registration. In line with our mission, this DDK web wallet is an open source project so we do not store any email or identity records in our nodes just like the cryptographic open source wallet that exists out there."
+                                                <a tooltip-placement="left" class="btn btn-white waves-effect email-info" tooltip="Email is not required for new user. However, if you enter your email in the column you will receive a welcome email only 1 time for information regarding your registration. In line with our mission, this DDK web wallet is an open source project so we do not store any email or identity records in our nodes just like the cryptographic open source wallet that exists out there."
                                                     tooltip-trigger="mouseenter">?</a>
                                             </div>
                                         </div>
@@ -71,7 +70,7 @@
                             </div>
                         </div>
                         <!-- End Step 1 -->
-                        
+
                         <!-- For Step 2 -->
                         <div class="material-modal-content" ng-show="step == 2">
                             <div class="modal-header modal-iconed">
@@ -85,7 +84,9 @@
                                 </span>
                             </div>
                             <div class="modal-header clearfix">
-                                <div><h2>{{'Step 2/2 - Confirm your Passphrase'|translate}}</h2></div>
+                                <div>
+                                    <h2>{{'Step 2/2 - Confirm your Passphrase'|translate}}</h2>
+                                </div>
                                 <div>
                                     <translate>Please re-enter your passphrase below.</translate>
                                 </div>
@@ -98,16 +99,9 @@
                                         <label for="repeatPassphrase">
                                             <translate>Passphrase</translate>
                                         </label>
-                                       <!--  <span class="pass-error" ng-show="noMatch"> -->
-                                            <translate class="pass-error" ng-show="noMatch">The passphrase entered doesn't match with the one generated before. Please go back
-                                                and generate a new one.</translate>
-                                       <!--  </span> -->
-
-
-                                        
-
+                                        <translate class="pass-error" ng-show="noMatch">The passphrase entered doesn't match with the one generated before. Please go back
+                                            and generate a new one.</translate>
                                     </div>
-                                    
                                 </div>
                             </div>
                             <div class="modal-body bordered">
@@ -122,14 +116,13 @@
                                         <input type="submit" value="{{'GO BACK' | translate}}" ng-click="goToStep(1)" class="btn-flat" />
                                     </li>
                                     <li>
-                                        <input type="submit" value="{{'CONFIRM' | translate}}" ng-click="login(repeatPassphrase, emailId)" class="btn-flat blue-link" ng-class="{'disabled': sending}"
-                                            ng-disabled="sending" />
+                                        <input type="submit" value="{{'CONFIRM' | translate}}" ng-click="login(repeatPassphrase, emailId)" class="btn-flat blue-link"
+                                            ng-class="{'disabled': sending}" ng-disabled="sending" />
                                     </li>
                                 </ul>
                             </div>
                         </div>
                         <!-- End Step 2 -->
-
                     </div>
                 </div>
             </div>

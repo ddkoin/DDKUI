@@ -56,8 +56,6 @@
     </div>
     <!-- End Google Authentication Enable Section -->
 
-
-
     <!-- For Google Authentication Enable Section -->
     <div class="col-xs-12" ng-if="disable">
         <div class="panel-default custom-panel-default settings-panel">
@@ -98,11 +96,11 @@
                 <div ng-switch on="selection" class="main-form-section">
                     <!-- First Step -->
                     <div ng-switch-when="Step 1: Download App" class="comm-tab-wrapper">
-                            <div class="comm-tab-container">
-                                <h1>Download and install google Authication APP</h1>
-                                <a href="#" class="down-app-store down-load-img"></a>
-                                <a href="#" class="down-google-play down-load-img"></a>
-                            </div>
+                        <div class="comm-tab-container">
+                            <h1>Download and install google Authication APP</h1>
+                            <a href="#" class="down-app-store down-load-img"></a>
+                            <a href="#" class="down-google-play down-load-img"></a>
+                        </div>
                     </div>
                     <!-- Second Step -->
                     <div ng-switch-when="Step 2: Scan QR Code" class="comm-tab-wrapper">
@@ -124,13 +122,13 @@
                     <!-- Third Step backup-key-->
                     <div ng-switch-when="Step 3: Backup Key" class="comm-tab-wrapper">
                         <div class="comm-tab-container">
-                                <p class="qr-code-key text-center">{{ twoFactorKey }}</p>
-                                <p class="text-center">
-                                    Plase save this key on paper. This key will allow you to recover Google Authentication in case of phone loss.
-                                </p>
-                                <p class="text-warning text-center">
-                                    Resetting you Google Authentication requies opening a support ticket and take at least 7 day to process.
-                                </p>
+                            <p class="qr-code-key text-center">{{ twoFactorKey }}</p>
+                            <p class="text-center">
+                                Plase save this key on paper. This key will allow you to recover Google Authentication in case of phone loss.
+                            </p>
+                            <p class="text-warning text-center">
+                                Resetting you Google Authentication requies opening a support ticket and take at least 7 day to process.
+                            </p>
                         </div>
                     </div>
                     <!-- Four Step -->

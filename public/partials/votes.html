@@ -82,9 +82,7 @@
                         <input ng-click="voteList.vote(delegate.publicKey, delegate.username)" type="checkbox" class="filled-in violet" id="filled-in-box-{{delegate.publicKey}}"
                             ng-checked="voteList.inList(delegate.publicKey)">
                         <label for="filled-in-box-{{delegate.publicKey}}"></label>
-                        <!-- <span class="app-chekbox" ng-show="delegates.voted(delegate.publicKey) || unconfirmedTransactions.inList(delegate.publicKey)"></span>
-                        <span class="app-chekbox" ng-click="voteList.vote(delegate.publicKey, delegate.username)" ng-hide="delegates.voted(delegate.publicKey) || unconfirmedTransactions.inList(delegate.publicKey)" ng-class="{'unchecked':!voteList.inList(delegate.publicKey), 'checked':voteList.inList(delegate.publicKey)}"></span> -->
-                    </td>
+                   </td>
                     <td data-title="tableMyDelegates.cols.rate" sortable="'rate'">{{delegate.rate}}</td>
                     <td data-title="tableMyDelegates.cols.username" sortable="'username'" class="username">{{delegate.username}}</td>
                     <td data-title="tableMyDelegates.cols.address">

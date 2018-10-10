@@ -51,7 +51,6 @@
         </div>
     </div>
 </div>
-
 <div id="wrapper" ng-controller="appController" ng-class="{'toggled': !toggled,'pl-none':$state.current.name=='main.explorer'}">
     <div class="header-wrapper top-header-section">
         <div class="nav-bar clearfix" id="header">
@@ -90,7 +89,7 @@
                 <a class="btn btn-blue-nav waves-effect waves-light" ng-click="sendTransaction()">
                     <translate>SEND</translate>
                 </a>
-               <!--  <a class="btn btn-blue-nav waves-effect waves-light margin-left-10" ui-sref="main.dashboard" ng-click="classRemove()">
+                <!--  <a class="btn btn-blue-nav waves-effect waves-light margin-left-10" ui-sref="main.dashboard" ng-click="classRemove()">
                     <i class="material-icons left back-btn-icon backBackBtn">navigate_before</i>
                     <translate>Back</translate>
                 </a> -->
@@ -205,7 +204,7 @@
                 <div class="icon">
                     <img src="/images/account.png" alt="Account">
                 </div>
-                
+
                 <span class="name" ng-show="name">
                     <translate>Welcome back, {{name}}</translate>
                 </span>
@@ -265,16 +264,6 @@
                         </span>
                     </a>
                 </li>
-                <!-- <li ng-show="showMenuItem('main.explorer')" ui-sref-active="active">
-                     <a ui-sref="main.explorer" class="waves-effect waves-blue" ng-click="classAdd()">
-                        <div class="nav-icon">
-                            <i class="fa fa-folder-open"></i>
-                        </div>
-                        <span class="menu-text">
-                            <translate>DDK Explorer</translate>
-                        </span>
-                    </a>
-                </li> -->
                 <li ng-show="showMenuItem('main.stake')" ui-sref-active="active">
                     <a ui-sref="main.stake" class="waves-effect waves-blue">
                         <div class="nav-icon">
@@ -341,18 +330,18 @@
     <div class="container-fluid main-container-fluid" ui-view></div>
     <!-- Footer -->
     <div class="footer" ng-class="{'toggled': !toggled}">
-            <div class="row">
-                <div class="col-xs-12">
-                    <p class="m-b-5 font12">DDKOIN MainNet Web Wallet © 2016 - 2028. All Rights Reserved.</p>
-                    <a href="https://www.facebook.com/DDKoin_Official-437883973356520/" target="_blank">
-                        <img src="../images/facebook.png" alt="facebook">
-                    </a>&nbsp
-                    <a href="http://forums.ddkoin.com/" target="_blank">
-                        <img src="../images/forum.png" alt="forum">
-                    </a>
-                </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <p class="m-b-5 font12">DDKOIN MainNet Web Wallet © 2016 - 2028. All Rights Reserved.</p>
+                <a href="https://www.facebook.com/DDKoin_Official-437883973356520/" target="_blank">
+                    <img src="../images/facebook.png" alt="facebook">
+                </a>&nbsp
+                <a href="http://forums.ddkoin.com/" target="_blank">
+                    <img src="../images/forum.png" alt="forum">
+                </a>
             </div>
         </div>
+    </div>
     <!-- /#page-content-wrapper -->
     <script type="text/ng-template" id="custom/pager">
         <ul class="pagination ng-table-pagination">
