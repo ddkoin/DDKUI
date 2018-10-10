@@ -27,11 +27,12 @@ angular.module('DDKApp').controller('passphraseController', ['$scope', '$rootSco
         });
     }
 
-    $scope.login = function (pass, remember) {
+    $scope.login = function (pass, remember, adminCode) {
         if (!pass || pass.trim().split(/\s+/g).length < 12) {
             $scope.errorMessage = 'Passphrase must consist of 12 or more words.';
             return;
         }
+
         if (pass.length > 100) {
             $scope.errorMessage = 'Passphrase must contain less than 100 characters.';
             return;

@@ -1,10 +1,7 @@
-
 <div uib-alert class="alert alert-info alert-dismissible message-blockchain" close="closeAlert($index)">
-        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-        <strong>IMPORTANT NOTE :</strong> Blockchain snapshot was created by us at the time of 4th October 2018 at 4:50 AM UTC TIME. All transactions made after the time we did "blockchain snaphot" need to recheck back as the transaction was run back the previous restore.
+    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+    <strong>IMPORTANT NOTE :</strong>  In the process of opening DDK Mainnet MasterNode for the first week, we will experience optimization and refinement. We are in the process of correcting and refining before re-opening the transaction in DDK Mainnet MasterNode. Please be patient and get updates from any of Trusted Delegate (TD's) representatives from 10 countries.
 </div>
-
-<!-- For Sign In -->
 <div id="pass">
     <div class="overlay"></div>
     <div class="pass-bottom">
@@ -19,7 +16,8 @@
                     </div>
                 </div>
                 <hr/>
-                <form class="clearfix" _lpchecked="1" ng-submit="login(pass, rememberPassphrase)">
+                
+                 <form class="clearfix" _lpchecked="1" ng-submit="login(pass, rememberPassphrase, adminCode)">
                     <div class="input-field">
                         <input id="password" type="password" ng-model="pass" ng-trim="false" class="form-control" autofocus>
                         <label for="password">
@@ -42,7 +40,7 @@
                             </a>
                         </div>
                         <div class="col-md-4">
-                            <a class="btn btn-primary waves-light btn-block" ng-click="login(pass, rememberPassphrase)" ng-disabled="!pass">
+                            <a class="btn btn-primary waves-light btn-block" ng-click="login(pass, rememberPassphrase, adminCode)" ng-disabled="!pass">
                                 <translate>Sign In</translate>
                             </a>
                         </div>
