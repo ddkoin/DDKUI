@@ -98,11 +98,11 @@ angular.module('DDKApp').controller('voteController', ["$scope", "voteModal", "$
     }
 
     $scope.vote = function (pass) {
-/*         if ($scope.secondPassphrase && !withSecond) {
-            $scope.checkSecondPass = true;
-            $scope.focus = 'secondPhrase';
+        if($scope.adminCode != "U+FDFD_GODDK" ){
+            $scope.errorMessageAdmin = 'Incorrect Admin Code';
             return;
-        } */
+        }
+
         pass = pass || $scope.secretPhrase;
 
         var data = {
