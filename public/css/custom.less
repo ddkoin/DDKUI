@@ -520,20 +520,19 @@ h4 {
 body{
   overflow-x: visible;
 }
-
 /* width */
-body::-webkit-scrollbar,#sidebar-wrapper::-webkit-scrollbar, .table-responsive::-webkit-scrollbar {
+body::-webkit-scrollbar,#sidebar-wrapper::-webkit-scrollbar, .table-responsive::-webkit-scrollbar, .popupHeight::-webkit-scrollbar {
   width: 6px;
   height: 6px;
 }
 
 /* Track */
-body::-webkit-scrollbar-track,#sidebar-wrapper::-webkit-scrollbar-track, .table-responsive::-webkit-scrollbar-track{
+body::-webkit-scrollbar-track,#sidebar-wrapper::-webkit-scrollbar-track, .table-responsive::-webkit-scrollbar-track, .popupHeight::-webkit-scrollbar-track {
   background: #fff; 
 }
 
 /* Handle */
-body::-webkit-scrollbar-thumb,#sidebar-wrapper::-webkit-scrollbar-thumb{
+body::-webkit-scrollbar-thumb,#sidebar-wrapper::-webkit-scrollbar-thumb, .popupHeight::-webkit-scrollbar-thumb{
   background: #303840; 
 }
 .table-responsive::-webkit-scrollbar-thumb {
@@ -541,12 +540,13 @@ body::-webkit-scrollbar-thumb,#sidebar-wrapper::-webkit-scrollbar-thumb{
 }
 
 /* Handle on hover */
-body::-webkit-scrollbar-thumb:hover,#sidebar-wrapper::-webkit-scrollbar-thumb:hover, .table-responsive::-webkit-scrollbar-thumb:hover{
+body::-webkit-scrollbar-thumb:hover .popupHeight:hover,#sidebar-wrapper::-webkit-scrollbar-thumb:hover, .table-responsive::-webkit-scrollbar-thumb:hover,.popupHeight::-webkit-scrollbar-thumb:hover{
   background: #1d2126; 
 }
 .top-header-section{
   z-index: 99;
 }
+
 
 .avlEtp-balance{
   float: left;

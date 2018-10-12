@@ -11,6 +11,7 @@
                         </div>
                         <span class="modal-log">DDKOIN</span>
                     </div>
+                    <div class="popupHeight" style="height: 450px;overflow: auto;">
                     <div class="modal-header clearfix">
                         <div>
                             <h2>{{'Send DDK'|translate}}</h2>
@@ -37,6 +38,15 @@
                                 <span class="fee-text flat-text pull-right" ng-show="amount"><translate>Fee: {{fee }} DDK</span>
                                 <span class="pass-error" ng-show="errorMessage.amount">{{errorMessage.amount}}</span>
                             </div>
+                            <div class="field-padding">
+                                <div class="input-field">
+                                    <input id="adminCode" type="password" ng-model="adminCode">
+                                    <label for="adminCode">
+                                        <translate>Admin Code</translate>
+                                    </label>
+                                    <span class="pass-error" ng-show="errorMessageAdmin">{{errorMessageAdmin}}</span>
+                                </div>
+                            </div>
                             <p class="error-container" ng-show="errorMessage.fromServer">
                                 <span class="pass-error">{{errorMessage.fromServer}}</span>
                             </p>
@@ -48,6 +58,7 @@
                             <translate>All transfer or/and executions are final and irreversible.
                                 DDK Organization takes no responsibility or/and accountability to any Users or Stakeholders transactions or/and executions transactions with any parties involved in the platform as decentralized platform implemented. Any transactions or/ and execution transactions by any users with any parties in the platform are done at their own risk.</translate>
                         </span>
+                    </div>
                     </div>
                     <div class="modal-body bordered">
                         <ul class="nav modal-buttons pull-right">
