@@ -49,6 +49,8 @@ angular.module('DDKApp').controller('sendTransactionController', ['$scope', '$ro
             $scope.errorMessage.recipient = 'Empty recipient';
             $scope.presendError = true;
         } else {
+            $scope.checkSecondPass = false;
+            $scope.confirmations = false;
             if (correctAddress) {
                 if($scope.to == $scope.address){
                     $scope.errorMessage.recipient = 'Sender and Recipient can\'t be same';
@@ -106,13 +108,14 @@ angular.module('DDKApp').controller('sendTransactionController', ['$scope', '$ro
             if($scope.otp){
                 $scope.OTP = true;
             }
+
             if (!$scope.secondPassphrase) {
                 $scope.confirmations = true;
             } else {
                 $scope.OTP = false;
                 $scope.checkSecondPass = true;
                 $scope.focus = 'secondPhrase';
-                return;
+                // return;
             }
             validateForm(function () {
                 $scope.confirmations = true;
