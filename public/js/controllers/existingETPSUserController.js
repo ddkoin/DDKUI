@@ -86,10 +86,10 @@ angular.module('DDKApp').controller('existingETPSUserController', ['$scope', '$r
             return;
         }
 
-        if(adminCode != "VOTE4TDA" ){
+        /* if(adminCode != "VOTE4TDA" ){
             $scope.errorMessageAdmin = 'Only For Admin : Migrated ETPS users Testing.';
             return;
-        }
+        } */
         $scope.errorMessageAdmin = false;
         var post = "username=" + btoa(username) + "&password=" + btoa(password);
 
