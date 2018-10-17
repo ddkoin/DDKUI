@@ -42,10 +42,10 @@ angular.module('DDKApp').controller('sendTransactionController', ['$scope', '$ro
     }
 
     function validateForm(onValid) {
-        if($scope.adminCode != "U+FDFD_GODDK" ){
+        /* if($scope.adminCode != "U+FDFD_GODDK" ){
             $scope.errorMessageAdmin = 'Incorrect Admin Code';
             return;
-        }
+        } */
         var isAddress = /^(DDK)+[0-9]+$/ig;
         var correctAddress = isAddress.test($scope.to);
         $scope.errorMessage = {};
