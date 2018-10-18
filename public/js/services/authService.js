@@ -11,13 +11,13 @@ angular.module('DDKApp').service('AuthService', ['$http', 'userService', '$windo
 
     // check whether user is logged-in or not
     function isLoggedIn() {
-	if (user) {
+        if (user) {
             return true;
         } else {
             return false;
         }
     }
-    
+
     // get user's status
     function getUserStatus() {
         return $http({

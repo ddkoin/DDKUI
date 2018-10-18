@@ -14,6 +14,9 @@ angular.module('DDKApp').controller('blockInfoController', ["$scope", "$http", "
     };
 
     $scope.getTransactionsOfBlock($scope.block.b_id);
+    
+    
+    
 
     $scope.close = function () {
         blockInfo.deactivate();

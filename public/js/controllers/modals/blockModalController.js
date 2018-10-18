@@ -11,17 +11,13 @@ angular.module('DDKApp').controller('blockModalController', ["$scope", "$http", 
             $scope.loading = false;
         });
     };
-
     $scope.getTransactionsOfBlock($scope.block.b_id);
-
     $scope.close = function () {
         blockModal.deactivate();
     }
-
     $scope.userInfo = function (userId) {
         blockModal.deactivate();
         $scope.userInfo = userInfo.activate({userId: userId});
         angular.element(document.querySelector("body")).addClass("ovh");
     }
-
 }]);

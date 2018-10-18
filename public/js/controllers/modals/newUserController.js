@@ -21,7 +21,6 @@ angular.module('DDKApp').controller('newUserController', ["$scope", "$http", "$r
     };
 
     $scope.goToStep = function (step,email) {
-
         var regex = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
 
         if(!regex.test(email) && email)
@@ -46,7 +45,6 @@ angular.module('DDKApp').controller('newUserController', ["$scope", "$http", "$r
     }
 
     $scope.login = function (pass,email) {
-        
         var data = { secret: pass };
         if (!Mnemonic.isValid(pass) || $scope.newPassphrase != pass) {
             $scope.errorMessage = 'The passphrase entered doesn\'t match with the one generated before.Please go back';
@@ -54,12 +52,12 @@ angular.module('DDKApp').controller('newUserController', ["$scope", "$http", "$r
             return;
         } else {
             $scope.view.inLoading = true;
-            $http.post($rootScope.serverUrl + "/api/accounts/open/", { secret: pass, email:email }).then(function (resp) {
+            $http.post($rootScope.serverUrl + "/api/accounts/open/", { secret: pass, email: email }).then(function (resp) {
                 $scope.view.inLoading = false;
                 if (resp.data.success) {
                     $window.localStorage.setItem('token', resp.data.account.token);
                     newUser.deactivate();
-                    userService.setData(resp.data.account.address, resp.data.account.publicKey, resp.data.account.balance, resp.data.account.unconfirmedBalance, resp.data.account.effectiveBalance, resp.data.account.token, resp.data.account.totalFrozeAmount, resp.data.account.username, resp.data.account.groupBonus);
+                    userService.setData(resp.data.account.address, resp.data.account.publicKey, resp.data.account.balance, resp.data.account.unconfirmedBalance, resp.data.account.effectiveBalance, resp.data.account.token, resp.data.account.totalFrozeAmount,resp.data.account.username, resp.data.account.groupBonus);
                     userService.setForging(resp.data.account.forging);
                     userService.setSecondPassphrase(resp.data.account.secondSignature);
                     userService.unconfirmedPassphrase = resp.data.account.unconfirmedSignature;
