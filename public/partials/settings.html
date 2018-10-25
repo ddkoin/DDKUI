@@ -115,7 +115,7 @@
                                 <p class="error-container" ng-show="errorMessage.otp">
                                     <span class="pass-error">{{errorMessage.otp}}</span>
                                 </p>
-                                <p class="text-center">Use Google Authentication APP to scen this QR Code.</p>
+                                <p class="text-center">Use Google Authentication APP to scan this QR Code.</p>
                             </div>
                         </div>
                     </div>
@@ -138,9 +138,9 @@
                             <form class="m-t-35" form-horizontal ng-submit="enableTwoFactor(twoFactor)">
                                 <div class="col-md-4">
                                     <div class="input-field">
-                                        <input class="form-control mb10" id="key" type="text" ng-model="settings.twoFactor.key">
-                                        <label for="key">
-                                            <translate>key</translate>
+                                        <input class="form-control mb10" id="backupKey" type="text" ng-model="settings.twoFactor.key">
+                                        <label for="backupKey">
+                                            <translate>Backup Key</translate>
                                         </label>
                                     </div>
                                 </div>

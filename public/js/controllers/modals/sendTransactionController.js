@@ -42,10 +42,6 @@ angular.module('DDKApp').controller('sendTransactionController', ['$scope', '$ro
     }
 
     function validateForm(onValid) {
-        if($scope.adminCode != "U+FDFD_GODDK" ){
-            $scope.errorMessageAdmin = 'Incorrect Admin Code';
-            return;
-        }
         var isAddress = /^(DDK)+[0-9]+$/ig;
         var correctAddress = isAddress.test($scope.to);
         $scope.errorMessage = {};
@@ -53,23 +49,34 @@ angular.module('DDKApp').controller('sendTransactionController', ['$scope', '$ro
             $scope.errorMessage.recipient = 'Empty recipient';
             $scope.presendError = true;
         } else {
-            $scope.checkSecondPass = false;
-            $scope.confirmations = false;
             if (correctAddress) {
                 if($scope.to == $scope.address){
                     $scope.errorMessage.recipient = 'Sender and Recipient can\'t be same';
                     $scope.presendError = true;
+                    $scope.checkSecondPass = false;
+                    $scope.confirmations = false;
                     return;
                 }
                 if ($scope.isCorrectValue($scope.amount)) {
                     $scope.presendError = false;
+                    if($scope.adminCode != "U+FDFD_GODDK" ){
+                        $scope.errorMessageAdmin = 'Incorrect Admin Code';
+                        $scope.presendError = true;
+                        $scope.checkSecondPass = false;
+                        $scope.confirmations = false;
+                        return;
+                    }
                     return onValid();
                 } else {
                     $scope.presendError = true;
+                    $scope.checkSecondPass = false;
+                    $scope.confirmations = false;
                 }
             } else {
                 $scope.errorMessage.recipient = 'Invalid recipient';
                 $scope.presendError = true;
+                $scope.checkSecondPass = false;
+                $scope.confirmations = false;
             }
         }
     }
@@ -113,19 +120,17 @@ angular.module('DDKApp').controller('sendTransactionController', ['$scope', '$ro
                 $scope.OTP = true;
             }
 
-            if (!$scope.secondPassphrase) {
-                $scope.confirmations = true;
-            } else {
-                $scope.OTP = false;
-                $scope.checkSecondPass = true;
-                $scope.focus = 'secondPhrase';
-                // return;
-            }
             validateForm(function () {
-                $scope.confirmations = true;
+
+                if (!$scope.secondPassphrase) {
+                    $scope.confirmations = true;
+                } else {
+                    $scope.OTP = false;
+                    $scope.checkSecondPass = true;
+                    $scope.focus = 'secondPhrase';
+                }
                 $scope.presendError = false;
                 $scope.errorMessage = {};
-              //  $scope.sendTransaction($scope.rememberedPassphrase);
             });
         } else {
             validateForm(function () {
@@ -177,6 +182,10 @@ angular.module('DDKApp').controller('sendTransactionController', ['$scope', '$ro
     }
 
     $scope.checkStatus = function () {
+/*         if($scope.adminCode != "U+FDFD_GODDK" ){
+            $scope.errorMessageAdmin = 'Incorrect Admin Code';
+            return;
+        } */
         $http.get($rootScope.serverUrl + '/api/accounts/checkTwoFactorStatus', {
             params: {
                 publicKey: userService.publicKey
@@ -236,7 +245,7 @@ angular.module('DDKApp').controller('sendTransactionController', ['$scope', '$ro
             }
         }
 
-        if (currency == null) {
+        if (!currency) {
             return error('DDK amount can not be blank');
         }
 
