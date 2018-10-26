@@ -59,13 +59,13 @@ angular.module('DDKApp').controller('sendTransactionController', ['$scope', '$ro
                 }
                 if ($scope.isCorrectValue($scope.amount)) {
                     $scope.presendError = false;
-                    if($scope.adminCode != "U+FDFD_GODDK" ){
+                    /* if($scope.adminCode != "U+FDFD_GODDK" ){
                         $scope.errorMessageAdmin = 'Incorrect Admin Code';
                         $scope.presendError = true;
                         $scope.checkSecondPass = false;
                         $scope.confirmations = false;
                         return;
-                    }
+                    } */
                     return onValid();
                 } else {
                     $scope.presendError = true;
