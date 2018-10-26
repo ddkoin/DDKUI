@@ -65,8 +65,15 @@
                                             {{transaction.stakedAmount | DDKFilter}} DDK
                                         </div>
                                     </li>
-                                    <li class="list-group-item"><translate>Type</translate>
-                                        <span class="pull-right small-text">{{transaction.trsName}}</span>
+                                    <li class="list-group-item">
+                                        <translate>Type</translate>
+                                        <!-- <span class="pull-right small-text">{{transaction.trsName}}</span> -->
+                                        <span class="pull-right small-text" ng-if="transaction.trsName === 'SIGNATURE'">
+                                            SECONDPASS
+                                        </span>
+                                        <span class="pull-right small-text" ng-if="transaction.trsName !== 'SIGNATURE'">
+                                            {{transaction.trsName}}
+                                        </span>
                                     </li>
                                     <li class="list-group-item bordered"><translate>Fee</translate>
                                         <span class="pull-right small-text">{{transaction.fee | DDKFilter}} DDK</span>

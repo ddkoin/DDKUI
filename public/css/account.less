@@ -59,4 +59,12 @@
     text-align: center;
   }
 }
+[type=checkbox].filled-in:not(:checked)+label:after {
+  border: 2px solid #46535f;
+}
+
+[type=checkbox].filled-in:checked+label:after{
+  border: 2px solid #076da5;
+  background-color: #0187d1;
+}
 

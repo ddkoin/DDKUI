@@ -121,6 +121,7 @@ angular.module('DDKApp').controller('accountController', ['$state', '$scope', '$
                 }
             }).then(function (resp) {
                 var unconfirmedTransactions = resp.data.transactions;
+                
                 $timeout(function () {
                     $scope.transactions = _.compact(
                         unconfirmedTransactions.concat(transactions).slice(0, 8)
@@ -128,6 +129,8 @@ angular.module('DDKApp').controller('accountController', ['$state', '$scope', '$
                     $scope.unconfirmedTransactions = _.compact(
                         unconfirmedTransactions.slice(0, 8)
                     );
+                    //console.log("$scope.unconfirmedTransactions :",$scope.unconfirmedTransactions);
+
                 });
             });
         });
@@ -221,7 +224,7 @@ angular.module('DDKApp').controller('accountController', ['$state', '$scope', '$
                     var totalCount = resp.data.totalAccountHolders;
                     $scope.totalCount = JSON.parse(totalCount);
                     var circulatingSupply = resp.data.totalCirculatingSupply / 100000000;
-                    $scope.circulatingSupply = parseInt(circulatingSupply);
+                    $scope.circulatingSupply = parseFloat(circulatingSupply);
                 } else {
                     console.log('Error in getDashboardDDKData : ',resp.data.error);
                 }

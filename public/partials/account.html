@@ -22,7 +22,7 @@
     <div class="card widget-statstic-card">
       <div class="card-header p-b-0">
         <div class="card-header-left">
-          <h5 class="d-inline-block f-16"><a href="https://explorer.ddkoin.com/#/user-info/DDK4995063339468361088" target="_blank">{{circulatingSupply || 0}} DDK</a></h5>
+          <h5 class="d-inline-block f-16"><a href="https://explorer.ddkoin.com/#/user-info/DDK4995063339468361088" target="_blank">{{(circulatingSupply || 0).toFixed(2)}} DDK</a></h5>
         </div>
       </div>
       <div class="card-block">
@@ -286,7 +286,12 @@
                   </td>
                   <td ng-show="(transaction.type &gt; 0) && (transaction.type &lt; 10)"></td>
                   <td class="padding-in-1400">
-                    {{transaction.trsName}}
+                    <div ng-if="transaction.trsName === 'SIGNATURE'">
+                      SECONDPASS
+                    </div>
+                    <div ng-if="transaction.trsName !== 'SIGNATURE'">
+                      {{transaction.trsName}}
+                    </div>
                   </td>
                   <td>
                     {{transaction.timestamp | timeAgoFilter: false}}

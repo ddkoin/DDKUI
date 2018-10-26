@@ -40,7 +40,14 @@
                         <a ng-if="!transaction.recipientName" href="#" ng-click="userInfo(transaction.recipientId)">{{transaction.recipientId}}</a>
                     </td>
                     <td class="td-amount" data-title="tableTransactions.cols.type" class="pointer" sortable="'type'">
-                        {{transaction.trsName}}
+                        
+
+                        <div ng-if="transaction.trsName === 'SIGNATURE'">
+                            SECONDPASS
+                          </div>
+                          <div ng-if="transaction.trsName !== 'SIGNATURE'">
+                            {{transaction.trsName}}
+                          </div>
                     </td>
                     <td data-title="tableTransactions.cols.timestamp" sortable="'timestamp'">{{transaction.timestamp | timeAgoFilter : showFullTime}}
                     </td>
@@ -72,7 +79,13 @@
                         <a ng-if="!transaction.recipientName" href="#" ng-click="userInfo(transaction.recipientId)">{{transaction.recipientId}}</a>
                     </td>
                     <td class="td-amount" data-title="tableTransactions.cols.type" class="pointer" sortable="'type'">
-                        {{transaction.trsName}}
+                        
+                        <div ng-if="transaction.trsName === 'SIGNATURE'">
+                            SECONDPASS
+                          </div>
+                          <div ng-if="transaction.trsName !== 'SIGNATURE'">
+                            {{transaction.trsName}}
+                          </div>
                     </td>
                     <td data-title="tableTransactions.cols.timestamp" sortable="'timestamp'">{{transaction.timestamp | timeAgoFilter : showFullTime}}
                     </td>
