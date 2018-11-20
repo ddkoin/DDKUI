@@ -22,6 +22,7 @@ angular.module('DDKApp').controller('existingETPSUserController', ['$scope', '$r
             destroy: function () {
             }
         });
+        angular.element(document.querySelector("body")).addClass("ovh");
         let passphrase = Buffer.from(data.passphrase, "base64").toString("ascii");
         $rootScope.newPassphrase = passphrase;
     }

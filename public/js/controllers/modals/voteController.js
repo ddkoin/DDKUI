@@ -134,6 +134,7 @@ angular.module('DDKApp').controller('voteController', ["$scope", "voteModal", "$
                     }
                     Materialize.toast('Transaction sent', 3000, 'green white-text');                    
                     voteModal.deactivate();
+                    angular.element(document.querySelector("body")).removeClass("ovh");
                 }
             });
         }

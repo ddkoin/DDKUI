@@ -25,6 +25,7 @@ angular.module('DDKApp').controller('passphraseController', ['$scope', '$rootSco
             destroy: function () {
             }
         });
+        angular.element(document.querySelector("body")).addClass("ovh");
     }
 
     $scope.login = function (pass, remember, adminCode) {

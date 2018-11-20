@@ -76,6 +76,7 @@
                     <translate>{{count}} in Total</translate>
                 </div>
             </div>
+            <div class="table-responsive">
             <table ng-show="count" ng-table="tableMyDelegates" border="0" width="100%" cellpadding="0" cellspacing="0" template-pagination="custom/pager">
                 <tr ng-repeat="delegate in $data" ng-class="{'checked': voteList.inList(delegate.publicKey), 'pending': checkPendingStatus(delegate)}">
                     <td data-title="''" class="no-select checkbox-col">
@@ -123,8 +124,10 @@
                     </td>
                 </tr>
             </table>
+            
             <div class="panel-body empty-body empty-table" ng-if="!count">
                 <p class="empty-state-text">{{'You have not voted for any delegates yet.'|translate}}</p>
+            </div>
             </div>
         </div>
     </div>

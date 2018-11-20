@@ -53,6 +53,7 @@ angular.module('DDKApp').controller('accountController', ['$state', '$scope', '$
             }
         }).then(function (response) {
             transactionInfo.deactivate();
+            angular.element(document.querySelector("body")).removeClass("ovh");
             $scope.modal = blockInfo.activate({ block: response.data.block });
             angular.element(document.querySelector("body")).addClass("ovh");
         }
@@ -249,6 +250,7 @@ angular.module('DDKApp').controller('accountController', ['$state', '$scope', '$
                 }
             }
         });
+        angular.element(document.querySelector("body")).addClass("ovh");
     }
 
     $scope.referralLink = function () {

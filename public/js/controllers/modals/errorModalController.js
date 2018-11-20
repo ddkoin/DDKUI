@@ -20,6 +20,7 @@ angular.module('DDKApp').controller('errorModalController', ["$scope", "errorMod
         }
 
         errorModal.deactivate();
+        angular.element(document.querySelector("body")).removeClass("ovh");
     }
 
 }]);

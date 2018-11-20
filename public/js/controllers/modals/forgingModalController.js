@@ -19,6 +19,7 @@ angular.module('DDKApp').controller('forgingModalController', ["$scope", "$rootS
         }
 
         forgingModal.deactivate();
+        angular.element(document.querySelector("body")).removeClass("ovh");
     }
 
     $scope.forgingState = function () {
@@ -52,6 +53,7 @@ angular.module('DDKApp').controller('forgingModalController', ["$scope", "$rootS
 
                         Materialize.toast('Forging enabled', 3000, 'green white-text');
                         forgingModal.deactivate();
+                        angular.element(document.querySelector("body")).removeClass("ovh");
                     } else {
                         $scope.error = resp.data.error;
                     }
@@ -78,6 +80,7 @@ angular.module('DDKApp').controller('forgingModalController', ["$scope", "$rootS
 
                         Materialize.toast('Forging disabled', 3000, 'red white-text');
                         forgingModal.deactivate();
+                        angular.element(document.querySelector("body")).removeClass("ovh");
                     } else {
                         $scope.error = resp.data.error;
                     }
