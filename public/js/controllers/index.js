@@ -22,6 +22,7 @@ require('../../js/controllers/esController');
 require('../../js/controllers/withdrawlController');
 require('../../js/controllers/referalController');
 require('../../js/controllers/referralStatisticsController');
+require('../../js/controllers/migrationController');
 
 // Modals
 require('../../js/controllers/modals/blockModalController');

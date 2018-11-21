@@ -1,62 +1,61 @@
-<div uib-alert class="alert alert-info alert-dismissible message-blockchain" close="closeAlert($index)">
-    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-    <strong>IMPORTANT NOTE :</strong>  In the process of opening DDK Mainnet MasterNode for the first week, we will experience optimization and refinement. We are in the process of correcting and refining before re-opening the transaction in DDK Mainnet MasterNode. Please be patient and get updates from any of Trusted Delegate (TD's) representatives from 10 countries.
-</div>
-<div id="pass">
-    <div class="overlay"></div>
-    <div class="pass-bottom">
-        <div class="login-card card-block auth-body mr-auto ml-auto">
-            <div class="text-center logo-wrapper">
-                <img src="../images/logo.png" alt="DDKOIN" width="250">
-            </div>
-            <div class="auth-box">
-                <div class="row m-b-20">
-                    <div class="col-md-12">
-                        <h3 class="text-left txt-primary">Sign In</h3>
+<!DOCTYPE html>
+<html ng-app="DDKApp">
+
+<head>
+    <base href="/">
+    <title>DDK - Loading...</title>
+
+    <link rel="apple-touch-icon-precomposed" sizes="57x57" href="/images/apple-touch-icon-57x57.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/images/apple-touch-icon-114x114.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/images/apple-touch-icon-72x72.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/images/apple-touch-icon-144x144.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="60x60" href="/images/apple-touch-icon-60x60.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="/images/apple-touch-icon-120x120.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="76x76" href="/images/apple-touch-icon-76x76.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="/images/apple-touch-icon-152x152.png" />
+    <link rel="icon" type="image/png" href="/images/favicon-196x196.png" sizes="196x196" />
+    <link rel="icon" type="image/png" href="/images/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16" />
+    <link rel="icon" type="image/png" href="/images/favicon-128.png" sizes="128x128" />
+
+    <meta charset="UTF-8">
+    <meta name="application-name" content="DDK.io - Blockchain Application Platform" />
+    <meta name="msapplication-TileColor" content="#F3F3E1" />
+    <meta name="msapplication-TileImage" content="/images/mstile-144x144.png" />
+    <meta name="msapplication-square70x70logo" content="/images/mstile-70x70.png" />
+    <meta name="msapplication-square150x150logo" content="/images/mstile-150x150.png" />
+    <meta name="msapplication-wide310x150logo" content="/images/mstile-310x150.png" />
+    <meta name="msapplication-square310x310logo" content="/images/mstile-310x310.png" />
+
+    <link rel="stylesheet" href="/static/css/app.css">
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,400italic,500,500italic,700,700italic,900,300italic,300,900italic,100italic,100&subset=latin,greek,greek-ext,vietnamese,cyrillic-ext,latin-ext,cyrillic'
+        rel='stylesheet' type='text/css'>
+    <script src="/static/js/vendor_app.js"></script>
+</head>
+
+<body>
+
+    <div id="pass" ng-controller="migrationController" ng-class="lang.id">
+        <div class="overlay"></div>
+        <div class="pass-bottom">
+            <div class="login-card card-block auth-body mr-auto ml-auto">
+                <div class="text-center logo-wrapper">
+                    <img src="../images/logo.png" alt="DDKOIN" width="250">
+                </div>
+                <div class="auth-box">
+                    <div class="loading clearfix" class="clearfix" ng-controller="migrationController">
+                        <div class="progress" ng-show="loadingState">
+                            <div class="determinate" style="width: {{loadingState}}%"></div>
+                        </div>
+                        <h3 class="heading" ng-show="loadingState">{{loadingState}}%</h3>
+                        <h3 class="heading">Migration is under Progress...</h3>
                     </div>
                 </div>
-                <hr/>
-                
-                 <form class="clearfix" _lpchecked="1" ng-submit="login(pass, rememberPassphrase, adminCode)">
-                    <div class="input-field">
-                        <input id="password" type="password" ng-model="pass" ng-trim="false" class="form-control" autofocus>
-                        <label for="password">
-                            <translate>Your Passphrase</translate>
-                        </label>
-                        <span class="pass-error" ng-show="errorMessage">{{errorMessage}}</span>
-                    </div>
-                    <div class="input-field">
-                        <div ng-include="'partials/shared/language-selector.html'"></div>
-                    </div>
-                    <div class="row auth-btn">
-                        <div class="col-md-4">
-                            <a class="btn btn-primary btn-block" ui-sref="existingETPSUser">
-                                <translate>ETPS User</translate>
-                            </a>
-                        </div>
-                        <div class="col-md-4">
-                            <a class="btn btn-primary btn-block" ng-click="newUser()">
-                                <translate>New Account</translate>
-                            </a>
-                        </div>
-                        <div class="col-md-4">
-                            <a class="btn btn-primary waves-light btn-block" ng-click="login(pass, rememberPassphrase, adminCode)" ng-disabled="!pass">
-                                <translate>Sign In</translate>
-                            </a>
-                        </div>
-                    </div>
-                </form>
+
             </div>
         </div>
-        <div class="pass-footer clearfix">
-            <p style="margin-bottom: 10px;">DDKOIN MainNet Web Wallet © 2016 - 2028. All Rights Reserved.</p>
-            <a href="https://www.facebook.com/DDKoin_Official-437883973356520/" target="_blank">
-                <img src="../images/facebook.png" alt="facebook">
-            </a>&nbsp
-            <a href="http://forums.ddkoin.com/" target="_blank">
-                <img src="../images/forum.png" alt="forum">
-            </a>
-        </div>
     </div>
-</div>
-<!-- End Sign In -->
+</body>
+
+</html>
