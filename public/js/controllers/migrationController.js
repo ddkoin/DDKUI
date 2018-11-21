@@ -4,7 +4,7 @@ angular.module('DDKApp').controller("migrationController", ["$scope", "$http", "
 
    // $scope.height = null;
     $scope.height = 0;
-    $scope.total = 53000;
+    $scope.total = 1072753;
 
     $scope.getTransactionCount = function () {
         $http.get($rootScope.serverUrl + "/api/transactions/count")
