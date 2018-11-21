@@ -4,14 +4,14 @@ angular.module('DDKApp').controller("migrationController", ["$scope", "$http", "
 
    // $scope.height = null;
     $scope.height = 0;
-    $scope.total = 1072753;
+    $scope.beforeMigration = 1072753;
 
     $scope.getTransactionCount = function () {
         $http.get($rootScope.serverUrl + "/api/transactions/count")
             .then(function (resp) {
                 if (resp.data.success) {
                     $scope.currentTxn = resp.data.confirmed;
-                    $scope.loadingState = (($scope.currentTxn/$scope.total)*100).toFixed(3);
+                    $scope.loadingState = ((($scope.currentTxn-$scope.beforeMigration)/52000)*100).toFixed(3);
                     console.log("No. of Transactions : ",$scope.currentTxn);
                 }
             });
