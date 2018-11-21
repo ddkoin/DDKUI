@@ -20,6 +20,7 @@ angular.module('DDKApp').controller('secondPassphraseModalController', ["$scope"
             $scope.destroy();
         }
         secondPassphraseModal.deactivate();
+        angular.element(document.querySelector("body")).removeClass("ovh");
     }
 
     $scope.generatePassphrase = function () {
@@ -80,6 +81,7 @@ angular.module('DDKApp').controller('secondPassphraseModalController', ["$scope"
 
                     Materialize.toast('Transaction sent', 3000, 'green white-text');
                     secondPassphraseModal.deactivate();
+                    angular.element(document.querySelector("body")).removeClass("ovh");
                 }
             });
         }

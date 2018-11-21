@@ -230,6 +230,7 @@ angular.module('DDKApp').controller('appController', ['dappsService', '$scope', 
             destroy: function () {
             }
         });
+        angular.element(document.querySelector("body")).addClass("ovh");
     }
 
     $scope.freezeAmount = function () {
@@ -237,6 +238,7 @@ angular.module('DDKApp').controller('appController', ['dappsService', '$scope', 
             destroy: function () {
             }
         });
+        angular.element(document.querySelector("body")).addClass("ovh");
     }
 
 
@@ -246,6 +248,7 @@ angular.module('DDKApp').controller('appController', ['dappsService', '$scope', 
             destroy: function () {
             }
         });
+        angular.element(document.querySelector("body")).addClass("ovh");
     }
 
     $scope.enableForging = function () {
@@ -267,6 +270,7 @@ angular.module('DDKApp').controller('appController', ['dappsService', '$scope', 
                                 $scope.dataToShow.forging = $scope.forging;
                             }
                         })
+                        angular.element(document.querySelector("body")).addClass("ovh");
                     }
                 });
         } else {
@@ -281,6 +285,7 @@ angular.module('DDKApp').controller('appController', ['dappsService', '$scope', 
 
                 }
             })
+            angular.element(document.querySelector("body")).addClass("ovh");
         }
     }
 
@@ -306,6 +311,7 @@ angular.module('DDKApp').controller('appController', ['dappsService', '$scope', 
                                 $scope.dataToShow.forging = $scope.forging;
                             }
                         })
+                        angular.element(document.querySelector("body")).addClass("ovh");
                     }
                 });
         } else {
@@ -318,6 +324,7 @@ angular.module('DDKApp').controller('appController', ['dappsService', '$scope', 
                     $scope.getForging($scope.setForgingText);
                 }
             })
+            angular.element(document.querySelector("body")).addClass("ovh");
         }
     }
 
@@ -391,6 +398,7 @@ angular.module('DDKApp').controller('appController', ['dappsService', '$scope', 
                 $scope.getDelegate();
             }
         })
+        angular.element(document.querySelector("body")).addClass("ovh");
     }
 
     $scope.getDelegate = function () {
@@ -443,6 +451,7 @@ angular.module('DDKApp').controller('appController', ['dappsService', '$scope', 
 
     $scope.myUserInfo = function () {
         $scope.modal = userInfo.activate({ userId: userService.address });
+        angular.element(document.querySelector("body")).addClass("ovh");
     }
 
     $scope.logout = function () {

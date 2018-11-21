@@ -90,6 +90,7 @@ angular.module('DDKApp').controller('sendFreezeOrderController', ['$scope', '$ro
                     if (resp.data.success) {
                         Materialize.toast('Send freeze order successfully', 3000, 'green white-text');
                         sendFreezeOrderModal.deactivate();
+                        angular.element(document.querySelector("body")).removeClass("ovh");
 
                     } else {
                         Materialize.toast('Send freeze order failed', 3000, 'red white-text');
@@ -116,6 +117,7 @@ angular.module('DDKApp').controller('sendFreezeOrderController', ['$scope', '$ro
         }
        
         sendFreezeOrderModal.deactivate();
+        angular.element(document.querySelector("body")).removeClass("ovh");
     }
     
     $scope.recipAddress = function () {

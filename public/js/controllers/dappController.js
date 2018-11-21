@@ -97,6 +97,7 @@ angular.module('DDKApp').controller('dappController', ['$scope', 'viewFactory', 
 
                     }
                 })
+                angular.element(document.querySelector("body")).addClass("ovh");
             }
         });
     }
@@ -113,12 +114,14 @@ angular.module('DDKApp').controller('dappController', ['$scope', 'viewFactory', 
                                 }
                             }
                         })
+                        angular.element(document.querySelector("body")).addClass("ovh");
                     } else {
                         $scope.uninstallRequest();
                     }
                 }
             }
         })
+        angular.element(document.querySelector("body")).addClass("ovh");
     }
 
     $scope.installRequest = function (masterPassphrase) {
@@ -146,6 +149,7 @@ angular.module('DDKApp').controller('dappController', ['$scope', 'viewFactory', 
 
                     }
                 })
+                angular.element(document.querySelector("body")).addClass("ovh");
             }
         });
     }
@@ -159,6 +163,7 @@ angular.module('DDKApp').controller('dappController', ['$scope', 'viewFactory', 
                     }
                 }
             })
+            angular.element(document.querySelector("body")).addClass("ovh");
         } else {
             $scope.installRequest();
         }
@@ -186,6 +191,7 @@ angular.module('DDKApp').controller('dappController', ['$scope', 'viewFactory', 
 
                     }
                 })
+                angular.element(document.querySelector("body")).addClass("ovh");
             }
         });
     }
@@ -202,6 +208,7 @@ angular.module('DDKApp').controller('dappController', ['$scope', 'viewFactory', 
                         }
                     }
                 })
+                angular.element(document.querySelector("body")).addClass("ovh");
             } else {
                 $scope.launchRequest();
             }
@@ -225,6 +232,7 @@ angular.module('DDKApp').controller('dappController', ['$scope', 'viewFactory', 
 
     $scope.openDapp = function () {
         openDappModal.activate({ destroy: openDapp });
+        angular.element(document.querySelector("body")).addClass("ovh");
     }
 
     $scope.isInstalled();

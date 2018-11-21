@@ -76,6 +76,7 @@ angular.module('DDKApp').controller('settingsController', ['$scope', '$rootScope
                 }, 1000);
             }
         });
+        angular.element(document.querySelector("body")).addClass("ovh");
     }
 
     $scope.steps = [
