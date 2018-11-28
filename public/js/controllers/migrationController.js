@@ -17,7 +17,7 @@ angular.module('DDKApp').controller("migrationController", ["$scope", "$http", "
             });
     }
 
-    $scope.getTransactionCount();
+    // $scope.getTransactionCount();
 
 /*     $scope.heightInterval = $interval(function () {
         $scope.getTransactionCount();
