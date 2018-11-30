@@ -38,7 +38,7 @@ module.exports = function (grunt) {
             }
         },
         cssmin: {
-            release: {
+            testnet: {
                 options: {
                     keepSpecialComments: "0"
                 },
@@ -50,16 +50,39 @@ module.exports = function (grunt) {
                         "bower_components/bootstrap/dist/css/bootstrap.css",
                         "node_modules/angular-modal/modal.css",
                         "node_modules/ng-table/ng-table.css",
-                        "tmp/app.css"
+                        "tmp/testnet/app.css"
+                    ]
+                }
+            },
+            mainnet: {
+                options: {
+                    keepSpecialComments: "0"
+                },
+                files: {
+                    "static/css/app.css": [
+                        "node_modules/imhere-angular-wizard/dist/css/imhere-angular-wizard.css",
+                        "node_modules/angular-chart.js/dist/angular-chart.css",
+                        "bower_components/materialize/dist/css/materialize.css",
+                        "bower_components/bootstrap/dist/css/bootstrap.css",
+                        "node_modules/angular-modal/modal.css",
+                        "node_modules/ng-table/ng-table.css",
+                        "tmp/mainnet/app.css"
                     ]
                 }
             }
         },
         less: {
-            release: {
+            testnet: {
                 files: {
-                    "tmp/app.css": [
-                        "css/application.less"
+                    "tmp/testnet/app.css": [
+                        "css/testnet/application.less"
+                    ]
+                }
+            },
+            mainnet: {
+                files: {
+                    "tmp/mainnet/app.css": [
+                        "css/mainnet/application.less"
                     ]
                 }
             }
@@ -125,5 +148,6 @@ module.exports = function (grunt) {
     });
 
     grunt.registerTask("default", ["watch"]);
-    grunt.registerTask("release", ["nggettext_extract", "nggettext_compile", "less", "cssmin", "concat:release", "browserify", "concat:withoutBrowserify", "uglify:release"]);
+    grunt.registerTask("release:testnet", ["nggettext_extract", "nggettext_compile", "less:testnet", "cssmin:testnet", "concat:release", "browserify", "concat:withoutBrowserify", "uglify:release"]);
+    grunt.registerTask("release:mainnet", ["nggettext_extract", "nggettext_compile", "less:mainnet", "cssmin:mainnet", "concat:release", "browserify", "concat:withoutBrowserify", "uglify:release"]);
 };

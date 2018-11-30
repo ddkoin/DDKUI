@@ -1,10 +1,11 @@
 {
-    "serverProtocol": "https",
-    "serverHost": "webwallet-w.ddkoin.com",
-    "serverPort": 443,
-    "elasticsearchHost": "https://search-ddkoin-es-4qcgobakdvymdnnjibppa5qttu.ap-southeast-1.es.amazonaws.com",
-    "UIPort":80,
-    "explorerServerHost": "https://explorer.ddkoin.com",
-    "explorerServerPort":443,
-    "domainName": "https://webwallet.ddkoin.com"
+    "serverProtocol": "http",
+    "serverHost": "localhost",
+    "serverPort": 7000,
+    "serverUrl":"http://localhost:7000",
+    "elasticsearchHost": "127.0.0.1:9200",
+    "UIPort": 7001,
+    "domainName": "http://localhost:7001",
+    "explorerServerHost": "explorertestnet.ddkoin.com",
+    "explorerServerPort":7001
 }
