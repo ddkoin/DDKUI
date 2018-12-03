@@ -1,7 +1,7 @@
 require('angular');
 var compareVersion = require('../../node_modules/compare-version/index.js');
 
-angular.module('DDKApp').controller('appController', ['dappsService', '$scope', '$rootScope', '$http', "userService", "$interval", "$timeout", 'viewFactory', '$state', 'blockService', 'sendTransactionModal', 'registrationDelegateModal', 'serverSocket', 'delegateService', '$window', 'forgingModal', 'errorModal', 'userInfo', 'transactionsService', 'secondPassphraseModal', 'focusFactory', 'gettextCatalog', '$location', 'AuthService', 'freezeAmountModal' , function (dappsService, $rootScope, $scope, $http, userService, $interval, $timeout, viewFactory, $state, blockService, sendTransactionModal, registrationDelegateModal, serverSocket, delegateService, $window, forgingModal, errorModal, userInfo, transactionsService, secondPassphraseModal, focusFactory, gettextCatalog, $location, AuthService, freezeAmountModal) {
+angular.module('DDKApp').controller('appController', ['dappsService', '$scope', '$rootScope', '$http', "userService", "$interval", "$timeout", 'viewFactory', '$state', 'blockService', 'sendTransactionModal', 'registrationDelegateModal', 'serverSocket', 'delegateService', '$window', 'forgingModal', 'errorModal', 'userInfo', 'transactionsService', 'secondPassphraseModal', 'focusFactory', 'gettextCatalog', '$location', 'AuthService', 'freezeAmountModal', 'agreeConfirmationModal', function (dappsService, $rootScope, $scope, $http, userService, $interval, $timeout, viewFactory, $state, blockService, sendTransactionModal, registrationDelegateModal, serverSocket, delegateService, $window, forgingModal, errorModal, userInfo, transactionsService, secondPassphraseModal, focusFactory, gettextCatalog, $location, AuthService, freezeAmountModal, agreeConfirmationModal) {
 
     $scope.searchTransactions = transactionsService;
     $scope.searchDapp = dappsService;
@@ -94,7 +94,7 @@ angular.module('DDKApp').controller('appController', ['dappsService', '$scope', 
         $scope.searchDapp.searchForDappGlobal = '';
     }
 
-    
+
     $scope.modules = [
         'main.dashboard',
         'main.delegates',
@@ -107,7 +107,7 @@ angular.module('DDKApp').controller('appController', ['dappsService', '$scope', 
         'main.dappstore',
         'main.multi',
         'main.explorer',
-       
+
         //'main.abc',
         'main.pendingGB',
         'main.stake',
@@ -115,30 +115,30 @@ angular.module('DDKApp').controller('appController', ['dappsService', '$scope', 
         'main.airdropStatistics'
 
     ];
-/*
-    $scope.getPriceTicker = function () {
-        $http.get("https://explorer.ddk.io/api/getPriceTicker")
-            .then(function (response) {
-                $scope.btc_usd = Math.floor(response.data.tickers.BTC.USD * 1000000) / 1000000;
-                $scope.DDK_btc = Math.floor(response.data.tickers.DDK.BTC * 1000000) / 1000000;
-                $scope.DDK_usd = Math.floor(response.data.tickers.DDK.USD * 1000000) / 1000000;
-            });
-    }; */
-
-  /*   $scope.getVersion = function () {
-        $http.get($rootScope.serverUrl + "/api/peers/version").then(function (response) {
-            if (response.data.success) {
-                $scope.version = response.data.version;
-                $http.get("https://login.DDK.io/api/peers/version").then(function (response) {
-                    $scope.latest = response.data.version;
-                    $scope.diffVersion = compareVersion($scope.version, $scope.latest);
+    /*
+        $scope.getPriceTicker = function () {
+            $http.get("https://explorer.ddk.io/api/getPriceTicker")
+                .then(function (response) {
+                    $scope.btc_usd = Math.floor(response.data.tickers.BTC.USD * 1000000) / 1000000;
+                    $scope.DDK_btc = Math.floor(response.data.tickers.DDK.BTC * 1000000) / 1000000;
+                    $scope.DDK_usd = Math.floor(response.data.tickers.DDK.USD * 1000000) / 1000000;
                 });
-            } else {
-                $scope.diffVersion = -1;
-                $scope.version = 'version error';
-            }
-        });
-    }; */
+        }; */
+
+    /*   $scope.getVersion = function () {
+          $http.get($rootScope.serverUrl + "/api/peers/version").then(function (response) {
+              if (response.data.success) {
+                  $scope.version = response.data.version;
+                  $http.get("https://login.DDK.io/api/peers/version").then(function (response) {
+                      $scope.latest = response.data.version;
+                      $scope.diffVersion = compareVersion($scope.version, $scope.latest);
+                  });
+              } else {
+                  $scope.diffVersion = -1;
+                  $scope.version = 'version error';
+              }
+          });
+      }; */
 
     $scope.convertToUSD = function (DDK) {
         return (DDK / 100000000) * $scope.DDK_usd;
@@ -227,10 +227,10 @@ angular.module('DDKApp').controller('appController', ['dappsService', '$scope', 
             });
     }
 
-    
+
     $scope.sendTransaction = function (to) {
         to = to || '';
-            $scope.sendTransactionModal = sendTransactionModal.activate({
+        $scope.sendTransactionModal = sendTransactionModal.activate({
             totalBalance: $scope.unconfirmedBalance,
             to: to,
             destroy: function () {
@@ -238,8 +238,8 @@ angular.module('DDKApp').controller('appController', ['dappsService', '$scope', 
         });
     }
 
-    
-    
+
+
     $scope.freezeAmount = function () {
         $scope.freezeAmountModal = freezeAmountModal.activate({
             destroy: function () {
@@ -452,9 +452,10 @@ angular.module('DDKApp').controller('appController', ['dappsService', '$scope', 
     $scope.myUserInfo = function () {
         $scope.modal = userInfo.activate({ userId: userService.address });
     }
-
+    /*logout Method*/
     $scope.logout = function () {
         $http.post($rootScope.serverUrl + "/api/accounts/logout", { address: userService.getAddress(), token: $window.localStorage.getItem('token') }).then(function (res) {
+            agreeConfirmationModal.deactivate();
             $window.localStorage.setItem('token', '');
             $location.path('passphrase');
         });
@@ -580,12 +581,12 @@ angular.module('DDKApp').controller('appController', ['dappsService', '$scope', 
     }
 
     $scope.getAppData();
-   /*  $scope.getPriceTicker(); */
-   /*  $scope.getVersion(); */
+    /*  $scope.getPriceTicker(); */
+    /*  $scope.getVersion(); */
     $scope.getMasterPassphrase();
-   /*  $timeout(function () {
-        $scope.getVersion();
-    }, 60 * 10 * 1000); */
+    /*  $timeout(function () {
+         $scope.getVersion();
+     }, 60 * 10 * 1000); */
 
     $scope.myClass = [];
     $scope.classAdd = function () {
@@ -600,7 +601,7 @@ angular.module('DDKApp').controller('appController', ['dappsService', '$scope', 
         if ($scope.myClass.length != 0) {
             $scope.classRemove();
         } else {
-            if($state.current.name != 'main.explorer' ) return;
+            if ($state.current.name != 'main.explorer') return;
             $scope.classAdd();
         }
     }

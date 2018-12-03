@@ -1,6 +1,6 @@
 require('angular');
 
-angular.module('DDKApp').controller('settingsController', ['$scope', '$rootScope', '$http', "userService", "$interval", "multisignatureModal", 'gettextCatalog', '$location', function ($rootScope, $scope, $http, userService, $interval, multisignatureModal, gettextCatalog, $location) {
+angular.module('DDKApp').controller('settingsController', ['$scope', '$rootScope', '$http', "userService", "$interval", "multisignatureModal", 'gettextCatalog', '$location', 'otpConfirmationModal', function ($rootScope, $scope, $http, userService, $interval, multisignatureModal, gettextCatalog, $location, otpConfirmationModal) {
 
     $scope.checkTwoFactorStatus = function () {
         $http.get($rootScope.serverUrl + '/api/accounts/checkTwoFactorStatus', {
@@ -17,6 +17,13 @@ angular.module('DDKApp').controller('settingsController', ['$scope', '$rootScope
             })
     }
     $scope.checkTwoFactorStatus();
+
+    $scope.openOTPModal = function () {
+        $scope.otpConfirmationModal = otpConfirmationModal.activate({
+            destroy: function () {
+            }
+        });
+    }
     var setPage = function () {
         $scope.view.page = { title: gettextCatalog.getString('Settings'), previous: null };
     }

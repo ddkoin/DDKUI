@@ -17,7 +17,7 @@ require('../../js/factories/modals/sendTransactionModal');
 
 ///
 require('../../js/factories/modals/agreeConfirmationModal');
-
+require('../../js/factories/modals/otpConfirmationModal');
 require('../../js/factories/modals/sendFreezeOrderModal');
 require('../../js/factories/modals/voteModal');
 require('../../js/factories/modals/registrationDelegateModal');

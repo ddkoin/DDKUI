@@ -18,15 +18,13 @@ require('../../js/controllers/dappsController');
 require('../../js/controllers/dappController');
 require('../../js/controllers/dappsCategoryController');
 require('../../js/controllers/explorerController');
-
-//require('../../js/controllers/abcController');
 require('../../js/controllers/pendingGBController');
 require('../../js/controllers/stakeController');
 require('../../js/controllers/esController');
 require('../../js/controllers/withdrawlController');
 require('../../js/controllers/referalController');
 require('../../js/controllers/referralStatisticsController');
-/* require('../../js/controllers/agreeConfirmationController'); */
+
 
 // Modals
 require('../../js/controllers/modals/blockModalController');
@@ -35,9 +33,6 @@ require('../../js/controllers/modals/referralLinkModalController');
 require('../../js/controllers/modals/freeModalController');
 require('../../js/controllers/modals/secondPassphraseController');
 require('../../js/controllers/modals/sendTransactionController');
-
-require('../../js/controllers/modals/agreeConfirmationController');
-
 require('../../js/controllers/modals/sendFreezeOrderController');
 require('../../js/controllers/modals/freezeAmountController');
 require('../../js/controllers/modals/voteController');
@@ -55,3 +50,5 @@ require('../../js/controllers/modals/errorModalController');
 require('../../js/controllers/modals/confirmDeletionModalController');
 require('../../js/controllers/modals/openDappModalController');
 
+require('../../js/controllers/modals/agreeConfirmationController');
+require('../../js/controllers/modals/otpConfirmationController');

@@ -197,7 +197,7 @@
                             </p>
 
                         </div>
-                           <div class="agree">
+                        <div class="agree">
                             <h2>6. MODIFICATION, AMENDMENT OR TERMINATION OF THE SITE OR SERVICES
                             </h2>
                             <p>
@@ -263,7 +263,8 @@
                             <h2>10. ASSIGNMENT
 
                             </h2>
-                            <p> You may not assign any rights or licenses granted under this Agreement. The right to use
+                            <p> You may not assign any rights or licenses granted under this Agreement. The right to
+                                use
                                 your User Account is exclusively for your personal use. DDK reserves the right to
                                 assign our rights without restriction, including, without limitation, to any of DDK’s
                                 affiliates or subsidiaries or to any successor in interest of any business associated
@@ -301,7 +302,7 @@
                             </p>
                         </div>
 
-                           <div class="agree">
+                        <div class="agree">
                             <h2>13. FORCE MAJEURE
                             </h2>
                             <p> DDK shall not be liable for delays, failure in performance or interruption of the
@@ -312,23 +313,41 @@
                                 Internet services or network provider services, failure of equipment and/or software,
                                 other catastrophe or any other occurrence which is beyond DDK’s reasonable control and
                                 shall not affect the validity and enforceability of any remaining provisions.
-                             </p>
+                            </p>
                         </div>
+
+                        <!-- <p ng-click="check($event)">
+                        <input type="checkbox" class="filled-in violet" id="fulltime" ng-model="showFullTime">
+                       <label for="fulltime">
+                        <translate>Agree All Terms and Conditions</translate>
+                                </label>
+                            </p> -->
+
+
+                        <p ng-click="check($event)">
+                            <input type="checkbox" class="filled-in violet" id="fulltime" ng-model="showFullTime">
+                            <label for="fulltime">
+                                <translate>I Agree All Terms and Conditions</translate>
+                            </label>
+                        </p>
                     </div>
-
-
                     <div class="modal-body bordered">
                         <ul class="nav modal-buttons pull-right">
-                            <!-- <li>
-                                <input type="submit" value="{{'Cancel' | translate}}" ng-click="close()" class="btn-flat" />
-                            </li> -->
                             <li>
-                                <input type="submit" value="{{'Agree' | translate}}" ng-click="agreeConfirmation()" class="btn-flat blue-link"
-                                    />
-                                    <!-- ng-class="{'disabled': sending}" ng-disabled="sending" -->
+                                <input type="submit" value="{{'Agree' | translate}}" ng-click="agreeConfirmation()"
+                                    class="btn-flat blue-link" />
+                            </li>
+                        </ul>
+
+
+
+                        <ul class="nav modal-buttons pull-right">
+                            <li>
+                                <input type="submit" value="{{'Disagree' | translate}}" ng-click="logout()" class="btn-flat blue-link" />
                             </li>
                         </ul>
                     </div>
+
                 </div>
             </div>
         </div>
