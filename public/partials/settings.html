@@ -74,7 +74,7 @@
                         <br> Use for withdrawals and security modification.
                     </div>
                     <div class="btn-enable text-right">
-                        <a class="btn btn-white waves-effect margin-left-10 l-height-n" ng-click="disableTwoFactor()">
+                        <a class="btn btn-white waves-effect margin-left-10 l-height-n" ng-click="openOTPModal()">
                             <translate>Disable</translate>
                         </a>
                     </div>
@@ -108,7 +108,7 @@
                             <img src="{{ dataUrl }}" alt="dataUrl" class="img-thumbnail">
                             <div class="clearfix"></div>
                             <div class="col-md-4 col-md-offset-4">
-                                <input class="form-control mb10" type="text" value="Enter QR Code" ng-model="settings.otp" name="qrCode">
+                                <input class="form-control mb10" type="password" value="Enter QR Code" ng-model="settings.otp" name="qrCode">
                                 <p class="error-container" ng-show="errorMessage.fromServer">
                                     <span class="pass-error">{{errorMessage.fromServer}}</span>
                                 </p>
@@ -138,7 +138,7 @@
                             <form class="m-t-35" form-horizontal ng-submit="enableTwoFactor(twoFactor)">
                                 <div class="col-md-4">
                                     <div class="input-field">
-                                        <input class="form-control mb10" id="backupKey" type="text" ng-model="settings.twoFactor.key">
+                                        <input class="form-control mb10" id="backupKey" type="password" ng-model="settings.twoFactor.key">
                                         <label for="backupKey">
                                             <translate>Backup Key</translate>
                                         </label>
@@ -146,7 +146,7 @@
                                 </div>
                                 <div class="col-md-4">
                                     <div class="input-field">
-                                        <input class="form-control mb10" id="yourPassphrase" type="text" ng-model="settings.twoFactor.secret">
+                                        <input class="form-control mb10" id="yourPassphrase" type="password" ng-model="settings.twoFactor.secret">
                                         <label for="yourPassphrase">
                                             <translate>Your Passphrase</translate>
                                         </label>
@@ -154,7 +154,7 @@
                                 </div>
                                 <div class="col-md-4">
                                     <div class="input-field">
-                                        <input class="form-control mb10" id="faCode" type="text" ng-model="settings.twoFactor.otp">
+                                        <input class="form-control mb10" id="faCode" type="password" ng-model="settings.twoFactor.otp">
                                         <label for="faCode">
                                             <translate>2FA Code</translate>
                                         </label>
