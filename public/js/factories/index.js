@@ -15,7 +15,7 @@ require('../../js/factories/modals/forgingModal');
 require('../../js/factories/modals/secondPassphraseModal');
 require('../../js/factories/modals/sendTransactionModal');
 
-///
+/*AgreeConfirmation Modal*/
 require('../../js/factories/modals/agreeConfirmationModal');
 require('../../js/factories/modals/otpConfirmationModal');
 require('../../js/factories/modals/sendFreezeOrderModal');

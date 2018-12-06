@@ -2,17 +2,8 @@ require('angular');
 
 angular.module('DDKApp').controller('agreeConfirmationController', ["$scope", "$http", "$rootScope", "userService", "agreeConfirmationModal", function ($scope, $http, $rootScope, userService, agreeConfirmationModal) {
 
-
-    // console.log("showFUll TIme"+$scope.showFullTime); 
-    // $scope.check = function(){
-    //     console.log("check value------"+$scope.showFullTime)
-    // }
-
     $scope.agreeConfirmation = function () {
-
-
-        console.log("Damini");
-        if ($scope.showFullTime == true) {
+            if ($scope.showFullTime == true) {
             $http.post($rootScope.serverUrl + '/api/accounts/updateUserStatus', {
                 address: userService.address,
                 status: "AGREED"
@@ -28,7 +19,7 @@ angular.module('DDKApp').controller('agreeConfirmationController', ["$scope", "$
                 });
 
         } else {
-            Materialize.toast('Please read  all terms and conditions', 3000, 'red white-text');
+            Materialize.toast('Please Accept Terms & Conditions', 3000, 'red white-text');
         }
 
     }
