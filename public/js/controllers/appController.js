@@ -107,8 +107,6 @@ angular.module('DDKApp').controller('appController', ['dappsService', '$scope', 
         'main.dappstore',
         'main.multi',
         'main.explorer',
-
-        //'main.abc',
         'main.pendingGB',
         'main.stake',
         'main.withdrawl',

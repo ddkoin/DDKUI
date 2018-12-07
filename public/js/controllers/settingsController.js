@@ -16,6 +16,7 @@ angular.module('DDKApp').controller('settingsController', ['$scope', '$rootScope
                 }
             })
     }
+    
     $scope.checkTwoFactorStatus();
 
     $scope.openOTPModal = function () {
