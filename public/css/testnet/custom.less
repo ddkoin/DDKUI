@@ -4,14 +4,7 @@ body{
 .ovh{
   overflow: hidden;
 }
-.delegates-input{
-  label{
-    color: @white;
-    &.active{
-      color: @white;
-    }
-  }
-}
+
 .row{
   margin-bottom: 0;
 }
@@ -30,6 +23,15 @@ body{
 .info-panel, .info-panel.info-panel-grey, .light-graph{
   margin-bottom: 15px;
 }
+.delegates-input{
+  label{
+    color: @white;
+    &.active{
+      color: @white;
+    }
+  }
+}
+
 .table-responsive{
   .table{
     tr{
@@ -59,15 +61,48 @@ body{
     width: 100%;
   }
 }
-#header{
-  background-color: #ffffff;
-  #title{
-    color: @brown1;
-  }
-  #top-menu{
-    padding: 14px 10px;
-  }
+
+
+#header #title {
+  color: #544835;
 }
+#header #title {
+  display: block;
+  float: left;
+  font-weight: 400;
+  margin-top: 3px;
+}
+h1 {
+  font-size: 20px;
+}
+
+
+
+#header #top-menu {
+  padding: 14px 10px;
+}
+#header #top-menu {
+  //float: right;
+  display: inline-block;
+}
+// #header{
+//   background: -webkit-gradient(linear, left top, right top, from(#3b4650), to(#647688));
+//   background: linear-gradient(to right, #3b4650, #647688);
+//   #title{
+//     color: @white;
+//   }
+//   #top-menu{
+//     padding: 14px 10px;
+//     .btn{
+//       line-height: normal;
+//       background: #0c3669;
+//       span{
+//         font-size: 12px;
+//       }
+//     }
+//   }
+// }
+
 .top-header-section{
   position: fixed;
   left: 0;
@@ -75,6 +110,9 @@ body{
   top: 0;
   z-index: 1;
 }
+
+
+
 .main-page-content{
   margin-top: 67px;
 }
@@ -88,6 +126,17 @@ body{
     display: inline-block;
   }
 }
+
+
+
+.search-bar{
+  border: #cecece 1px solid;
+  border-radius: 4px;
+  padding: 5px 50px 5px 10px;
+  margin-bottom: 15px;
+
+}
+
 .search-bar{
   border: #cecece 1px solid;
   border-radius: 4px;
@@ -305,15 +354,16 @@ body{
 
 /* For Login Page */
 /* .test_bg{
-  background-image: url(/images/blockchain_test.jpg);
+  
 } */
 
 #pass {
-  background-image: url(/images/blockchain_test.jpg);
+  background-image: url(/images/blockchain_test.jpg);  
   width: 100%;
   height: 100vh;
   display: table;
   background-size: 100% 100%;
+  background-size: cover;
   position: relative;
   background-repeat: no-repeat;
 
@@ -341,13 +391,23 @@ body{
       bottom: 0;
       text-align: center;
       width: 100%;
-      color: @white;
+      // color: @white;
+      // font-size: 14px;
+      // padding: 20px 0;
+      // margin-top:30px;
+      // position: relative;
+      color: #fff;
       font-size: 14px;
-      padding: 20px 0;
-      margin-top:30px;
-      position: relative;
     }
   }
+}
+
+
+.pass_testnet {
+  background-image: url(/images/blockchain_test.jpg);
+}
+.clearfix, .toast {
+  clear: both;
 }
 .tab-nav{
   margin: 0 -15px  15px!important;
@@ -965,12 +1025,12 @@ a.imhere-pre{
   position: relative;
 }
 .button-primary{
-  color: #23849b;
-  border-color: #23849b;
+  color: #cb3d3d;
+  border-color: #cb3d3d;
 }
 .button-primary:hover{
   color: #fff;
-  background-color: #23849b;
+  background-color: #cb3d3d;;
 }
 .m15{
   margin: 15px;
@@ -1255,3 +1315,218 @@ td.child.open {
 .message-blockchain{
   display:none;
 }
+
+
+// .auth-box {
+//   background-color: #fff;
+//   border-radius: 8px;
+//   margin: 20px 0 0;
+//   padding: 20px;
+//   -webkit-box-shadow: 0 2px 18px -2px #000;
+//   box-shadow: 
+// }
+.auth-box {
+  background-color: #fff;
+  border-radius: 8px;
+  margin: 20px 0 0;
+  padding: 20px;
+  -webkit-box-shadow: 0 2px 18px -2px #000;
+  box-shadow: 0 2px 18px -2px #000;
+}
+.auth-box .input-field .form-control {
+  border-left: 0;
+  height: 40px;
+  border-right: 0;
+  border-top: 0;
+  padding-left: 0;
+  box-shadow: none;
+  border-radius: 0;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #ccc;
+}
+
+// div{
+//   margin: 0;
+//   padding: 0;
+//   border: 0;
+//   outline: 0;
+//   font-size: 14px;
+//   vertical-align: baseline;
+//   background: 0 0;
+// }
+
+
+
+auth-box .input-field .form-control {
+  border-left: 0;
+  height: 40px;
+  border-right: 0;
+  border-top: 0;
+  padding-left: 0;
+  box-shadow: none;
+  border-radius: 0;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #ccc;
+}
+
+
+.input-field {
+  position: relative;
+  margin-top: 1.6rem;
+}
+
+.language-box{
+  border: #ccc 1px solid;
+  border-left: 0;
+  border-right: 0;
+  border-top: 0;
+  border-left: 0;
+  padding: 0px 10px 7px;
+  border-radius: 0;
+  border-right: 0;
+  border-top: 0;
+}
+
+
+.auth-btn{
+  margin-left: -10px;
+  margin-right: -10px;
+  .col-md-4, .col-md-5, .col-md-12{
+    padding-left: 10px;
+    padding-right: 10px;
+    .btn{
+      padding: 10px 16px;
+      line-height: normal;
+    }
+  }
+}
+
+
+
+.logo-wrapper{
+  height: 43px;
+  display: inline-block;
+  overflow: hidden;
+  width: 100%;
+  img{
+    top: -56px;
+    position: relative;
+  }
+}
+.stake-latest-orders{
+  .table-responsive{
+    overflow-y: hidden;
+  }
+}
+
+
+@media (max-height: 550px){
+.pass-footer {
+    position: relative;
+    padding: 1em;
+}
+}
+
+
+
+abbr, address, article, aside, audio, b, blockquote, body, canvas, caption, cite, code, dd, del, details, dfn, div, dl, dt, em, fieldset, figcaption, figure, footer, form, h1, h2, h3, h4, h5, h6, header, hgroup, html, i, iframe, img, ins, kbd, label, legend, li, mark, menu, nav, object, ol, p, pre, q, samp, section, small, span, strong, sub, summary, sup, table, tbody, td, tfoot, th, thead, time, tr, ul, var, video{
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-size: 14px;
+  vertical-align: baseline;
+  background: 0 0;
+}
+
+.login-card.auth-body {
+  width: 500px;
+}
+.login-card {
+  border-radius: 30px;
+  display: block;
+}
+.login-card {
+  position: relative;
+}
+
+.mr-auto, .mx-auto {
+  margin-right: auto!important;
+}
+
+.ml-auto, .mx-auto {
+  margin-left: auto!important;
+}
+
+
+
+
+#pass .pass-bottom .pass-window .pass-window-form {
+  padding: 10px 15px 15px!important;
+}
+.btn-primary{
+background-color: #cb3d3d;
+}
+
+
+#pass .pass-bottom .pass-footer {
+  bottom: 0;
+  text-align: center;
+  width: 100%;
+  color: #fff;
+  font-size: 14px;
+  padding: 20px 0;
+  margin-top: 30px;
+  position: relative;
+}
+
+
+#header {
+  background-color: #fff;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+////////*////////////
+
+.dashboard-info .panel-body {
+  padding: 0;
+  display: table;
+  width: 100%;
+  height: 100%;
+}
+.pr7 {
+  padding-right: 7.5px;
+}
+/*Header*/
+.top-header-section {
+  z-index: 99;
+}
+
+.top-header-section {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+}
+.header-wrapper {
+  /* -webkit-box-shadow: 0 2px 5px rgba(0,0,0,.26); */
+  box-shadow: 0 2px 5px rgba(0,0,0,.26);
+}
+
+
+
+

@@ -50,7 +50,7 @@ module.exports = function (grunt) {
                         "bower_components/bootstrap/dist/css/bootstrap.css",
                         "node_modules/angular-modal/modal.css",
                         "node_modules/ng-table/ng-table.css",
-                        "tmp/testnet/app.css"
+                        "tmp/app.css"
                     ]
                 }
             },
@@ -66,7 +66,7 @@ module.exports = function (grunt) {
                         "bower_components/bootstrap/dist/css/bootstrap.css",
                         "node_modules/angular-modal/modal.css",
                         "node_modules/ng-table/ng-table.css",
-                        "tmp/mainnet/app.css"
+                        "tmp/app.css"
                     ]
                 }
             }
@@ -74,14 +74,14 @@ module.exports = function (grunt) {
         less: {
             testnet: {
                 files: {
-                    "tmp/testnet/app.css": [
+                    "tmp/app.css": [
                         "css/testnet/application.less"
                     ]
                 }
             },
             mainnet: {
                 files: {
-                    "tmp/mainnet/app.css": [
+                    "tmp/app.css": [
                         "css/mainnet/application.less"
                     ]
                 }
