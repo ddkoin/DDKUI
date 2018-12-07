@@ -61,9 +61,10 @@ angular.module('DDKApp').controller('referalController', ["$scope", "$http", "$r
             $scope.noMatch = true;
             return;
         }
-        var data = { secret: pass };
         if (!Mnemonic.isValid(pass) || $scope.newPassphrase != pass) {
+            $scope.errorMessage = 'The passphrase entered doesn\'t match with the one generated before.Please go back';
             $scope.noMatch = true;
+            return;
         } else {
             $scope.view.inLoading = true;
             $http.post($rootScope.serverUrl + "/api/accounts/open/", { secret: pass, referal: _referalId, email:email }).then(function (resp) {

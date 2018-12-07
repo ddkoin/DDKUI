@@ -1,3 +1,4 @@
+
 var express = require('express');
 var http = require('http');
 var cors = require('cors');
@@ -8,7 +9,7 @@ const request = require('request');
 const Config = require('./config.json');
 
 var app = express();
-var port = process.env.PORT || '7001';
+var port = parseInt(process.env.PORT,10) || 7001;
 
 app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'ejs');

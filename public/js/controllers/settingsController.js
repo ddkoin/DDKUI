@@ -16,6 +16,7 @@ angular.module('DDKApp').controller('settingsController', ['$scope', '$rootScope
                 }
             })
     }
+    
     $scope.checkTwoFactorStatus();
 
     $scope.openOTPModal = function () {
@@ -24,7 +25,6 @@ angular.module('DDKApp').controller('settingsController', ['$scope', '$rootScope
             }
         });
     }
-
     var setPage = function () {
         $scope.view.page = { title: gettextCatalog.getString('Settings'), previous: null };
     }

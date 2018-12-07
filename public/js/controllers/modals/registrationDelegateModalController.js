@@ -11,6 +11,7 @@ angular.module('DDKApp').controller('registrationDelegateModalController', ["$sc
     $scope.secondPassphrase = userService.secondPassphrase;
     $scope.rememberedPassphrase = userService.rememberPassphrase ? userService.rememberedPassphrase : false;
     $scope.focus = 'username';
+    $scope.ddkfoundation=false;
 
     $scope.close = function () {
         if ($scope.destroy) {

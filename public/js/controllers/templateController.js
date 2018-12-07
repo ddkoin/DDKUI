@@ -31,9 +31,9 @@ angular.module('DDKApp').controller('templateController', ['$scope', '$rootScope
         })
         .then(function(resp) {
             if(resp.data.success) {
-                $scope.allChecked = true;
+                userService.setWithdrawlStatus(resp.data.status);
             }else {
-                $scope.errCode = resp.data.error.code;
+                userService.setWithdrawlStatus(resp.data.status);
             }
         })
         .catch(function(err) {

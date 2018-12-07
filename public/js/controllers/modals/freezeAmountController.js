@@ -94,6 +94,13 @@ angular.module('DDKApp').controller('freezeAmountController', ['$scope', '$rootS
         return $scope.isCorrectValue(currency, true);
     }
 
+    /* function validateForm(onValid) {
+        if ($scope.isCorrectValue($scope.fAmount)) {
+            return onValid();
+        } else {
+            $scope.presendError = true;
+        }
+    } */
     function validateForm(onValid) {
         if ($scope.isCorrectValue($scope.fAmount)) {
             return onValid();
@@ -105,7 +112,6 @@ angular.module('DDKApp').controller('freezeAmountController', ['$scope', '$rootS
     }
 
     $scope.passcheck = function (fromSecondPass) {
-        $scope.publicKey = userService.getPublicKey();
         if (fromSecondPass) {
             $scope.checkSecondPass = false;
             $scope.passmode = $scope.rememberedPassphrase ? false : true;
@@ -116,6 +122,19 @@ angular.module('DDKApp').controller('freezeAmountController', ['$scope', '$rootS
             $scope.secretPhrase = '';
             return;
         }
+        /* if ($scope.rememberedPassphrase) {
+            validateForm(function () {
+                if (!$scope.secondPassphrase) {
+                    $scope.confirmations = true;
+                }
+                else {
+                    $scope.checkSecondPass = true;
+                    $scope.focus = 'secondPhrase';
+                }
+                $scope.presendError = false;
+                $scope.errorMessage = {};
+            });
+        } */
         if ($scope.rememberedPassphrase) {
             validateForm(function () {
                 if (!$scope.secondPassphrase) {
@@ -128,7 +147,16 @@ angular.module('DDKApp').controller('freezeAmountController', ['$scope', '$rootS
                 $scope.presendError = false;
                 $scope.errorMessage = {};
             });
-        } else {
+        } /* else {
+            validateForm(function () {
+                $scope.presendError = false;
+                $scope.errorMessage = {};
+                $scope.passmode = !$scope.passmode;
+                //$scope.focus = 'secretPhrase';
+                $scope.secretPhrase = '';
+            });
+        } */
+        else {
             validateForm(function () {
                 $scope.confirmations = false;
                 $scope.presendError = false;
@@ -183,7 +211,7 @@ angular.module('DDKApp').controller('freezeAmountController', ['$scope', '$rootS
         var data = {
             secret: secretPhrase || $scope.secretPhrase,
             freezedAmount: $scope.convertDDK($scope.fAmount),
-            publicKey: $scope.publicKey
+            publicKey: userService.publicKey
         };
 
         if ($scope.secondPassphrase) {
@@ -199,12 +227,12 @@ angular.module('DDKApp').controller('freezeAmountController', ['$scope', '$rootS
                 .then(function (resp) {
                     $scope.sending = false;
                     if (resp.data.success) {
-                        Materialize.toast('Freeze Success', 3000, 'green white-text');
+                        Materialize.toast('Stake Success', 3000, 'green white-text');
                         freezeAmountModal.deactivate();
                         angular.element(document.querySelector("body")).removeClass("ovh");
                         $rootScope.enableReferOption = resp.data.referStatus;
                     } else {
-                        Materialize.toast('Freeze Error', 3000, 'red white-text');
+                        Materialize.toast('Stake Error', 3000, 'red white-text');
                         $scope.errorMessage.fromServer = resp.data.error;
 
                     }

@@ -26,8 +26,13 @@ angular.module('DDKApp').controller('sendFreezeOrderController', ['$scope', '$ro
             if (!correctAddress) {
                 $scope.errorMessage.recipient = 'Invalid recipient';
                 $scope.presendError = true;
-            }else{
-                return onValid();
+            } else {
+                if ($scope.recipientAddress == userService.address) {
+                    $scope.errorMessage.recipient = 'Sender and Recipient can\'t be same';
+                    $scope.presendError = true;
+                } else {
+                    return onValid();
+                }
             }
         }
     }
@@ -88,12 +93,12 @@ angular.module('DDKApp').controller('sendFreezeOrderController', ['$scope', '$ro
             $http.post($rootScope.serverUrl + "/api/shiftOrder/sendFreezeOrder", data)
                 .then(function (resp) {
                     if (resp.data.success) {
-                        Materialize.toast('Send freeze order successfully', 3000, 'green white-text');
+                        Materialize.toast('Sent Success', 3000, 'green white-text');
                         sendFreezeOrderModal.deactivate();
                         angular.element(document.querySelector("body")).removeClass("ovh");
 
                     } else {
-                        Materialize.toast('Send freeze order failed', 3000, 'red white-text');
+                        Materialize.toast('Sent Error', 3000, 'red white-text');
                         $scope.errorMessage.fromServer = resp.data.error;
                     }
                 });
@@ -115,7 +120,6 @@ angular.module('DDKApp').controller('sendFreezeOrderController', ['$scope', '$ro
         if ($scope.destroy) {
             $scope.destroy();
         }
-       
         sendFreezeOrderModal.deactivate();
         angular.element(document.querySelector("body")).removeClass("ovh");
     }

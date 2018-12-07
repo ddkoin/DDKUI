@@ -16,6 +16,9 @@ angular.module('DDKApp').controller('existingETPSUserController', ['$scope', '$r
     $scope.forgotPasswordPage = false;
     $scope.loginPage = true;
 
+    $scope.forgotPasswordPage = false;
+    $scope.loginPage = true;
+
     $scope.newUser = function (data) {
         $scope.newUserModal = newUserMigration.activate({
             dataVar: data,
@@ -43,6 +46,58 @@ angular.module('DDKApp').controller('existingETPSUserController', ['$scope', '$r
         $scope.etps_username = '';
         $scope.email = '';
         $("label").removeClass("active");
+    }
+
+    $scope.forgotWindow = function () {
+        $scope.loginPage = false;
+        $scope.forgotPasswordPage = true;
+        $scope.errorMessage = false;
+        $scope.username = '';
+        $scope.password = '';
+        $("label").removeClass("active");
+    }
+
+    $scope.back = function () {
+        $scope.forgotPasswordPage = false;
+        $scope.loginPage = true;
+        $scope.forgotErrorMessage = false;
+        $scope.etps_username = '';
+        $scope.email = '';
+        $("label").removeClass("active");
+    }
+
+    $scope.forgotPassword = function (username, email) {
+
+        var regex = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+
+        if (!username || !email) {
+            $scope.forgotErrorMessage = 'Username & Email are Mandatory';
+            return;
+        }
+
+        if (!regex.test(email)) {
+            $scope.forgotErrorMessage = 'Please enter a valid email address.';
+            return;
+        }
+
+        let post = "username=" + btoa(username) + "&email=" + btoa(email);
+        let url = config.domainName + '/existingETPSUser';
+        $scope.forgotErrorMessage = false;
+        $http.post($rootScope.serverUrl + "/api/accounts/forgotEtpsPassword", {
+            data: post,
+            link: url
+        }).success(function (resp) {
+            if (!resp.success) {
+                $scope.forgotErrorMessage = resp.error;
+            } else {
+                $scope.etps_username = '';
+                $scope.email = '';
+                $("label").removeClass("active");
+                Materialize.toast(resp.info, 1000, 'green white-text');
+            }
+        }).error(function (err) {
+            $scope.forgotErrorMessage = err;
+        });
     }
 
     $scope.forgotPassword = function (username, email) {

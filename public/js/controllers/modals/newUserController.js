@@ -47,7 +47,9 @@ angular.module('DDKApp').controller('newUserController', ["$scope", "$http", "$r
     $scope.login = function (pass,email) {
         var data = { secret: pass };
         if (!Mnemonic.isValid(pass) || $scope.newPassphrase != pass) {
+            $scope.errorMessage = 'The passphrase entered doesn\'t match with the one generated before.Please go back';
             $scope.noMatch = true;
+            return;
         } else {
             $scope.view.inLoading = true;
             $http.post($rootScope.serverUrl + "/api/accounts/open/", { secret: pass, email: email }).then(function (resp) {
@@ -74,6 +76,7 @@ angular.module('DDKApp').controller('newUserController', ["$scope", "$http", "$r
     }
 
     $scope.generatePassphrase();
+
 
 
 
@@ -323,32 +326,5 @@ angular.module('DDKApp').controller('newUserController', ["$scope", "$http", "$r
     {name: 'Zimbabwe', code: 'ZW'}
   ];
     
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 }]);

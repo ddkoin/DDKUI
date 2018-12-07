@@ -1,7 +1,7 @@
 require('angular');
 
 
-angular.module('DDKApp').controller('passphraseController', ['$scope', '$rootScope', '$http', "$state", "userService", "newUser", 'gettextCatalog', '$cookies', '$window', function ($scope, $rootScope, $http, $state, userService, newUser, gettextCatalog, $cookies, $window) {
+angular.module('DDKApp').controller('passphraseController', ['$scope', '$rootScope', '$http', "$state", "userService", "newUser", 'gettextCatalog', '$cookies', '$window', 'agreeConfirmationModal', function ($scope, $rootScope, $http, $state, userService, newUser, gettextCatalog, $cookies, $window, agreeConfirmationModal) {
 
     userService.setData();
     userService.rememberPassphrase = false;
@@ -61,6 +61,13 @@ angular.module('DDKApp').controller('passphraseController', ['$scope', '$rootSco
                     $state.go(goto);
                 } else {
                     $state.go('main.dashboard');
+                    //MODAL CALL
+
+                    
+/*                  $scope.agreeConfirmationModal = agreeConfirmationModal.activate({
+            
+                }); */
+                  
                 }
             } else {
                 $scope.errorMessage = resp.data.error ? resp.data.error : 'Error connecting to server';

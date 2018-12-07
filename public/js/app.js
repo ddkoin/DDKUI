@@ -20,9 +20,14 @@ DDKApp.config([
     "$locationProvider",
     "$stateProvider",
     "$urlRouterProvider",
-    function ($locationProvider, $stateProvider, $urlRouterProvider) {
+    "$tooltipProvider",
+    function ($locationProvider, $stateProvider, $urlRouterProvider, $tooltipProvider) {
         $locationProvider.html5Mode(true);
         $urlRouterProvider.otherwise("/");
+
+        $tooltipProvider.setTriggers({
+            'hover': 'mouseenter'     
+        });
 
         // Now set up the states
         $stateProvider
@@ -41,11 +46,13 @@ DDKApp.config([
                 templateUrl: "/partials/stake.html",
                 controller: "stakeController"
             })
+
             .state('main.settings', {
                 url: "/settings",
                 templateUrl: "/partials/settings.html",
                 controller: "settingsController"
             })
+          
             .state('main.transactions', {
                 url: "/transactions",
                 templateUrl: "/partials/transactions.html",
@@ -97,6 +104,11 @@ DDKApp.config([
                 templateUrl: "/partials/passphrase.html",
                 controller: "passphraseController"
             })
+            .state('main.referralStatistics', {
+                url: "/referralStatistics",
+                templateUrl: "/partials/referral-statistics.html",
+                controller: "referralStatisticsController"
+            })
             .state('loading', {
                 url: "/",
                 templateUrl: "/partials/loading.html"
@@ -129,15 +141,4 @@ DDKApp.config([
                 }
             });
     });
-
-    // user authentication upon page forward/back for currently logged-in user
-   /*  $rootScope.$on('$stateChangeStart', function (e, toState, toParams, fromState, fromParams) {
-
-        AuthService.getUserStatus()
-            .then(function () {
-                if (!AuthService.isLoggedIn() && toState.url != '/referal/:id' && toState.url != '/existingETPSUser') {
-                    $state.go('passphrase');
-                }
-            });
-    }); */
 });

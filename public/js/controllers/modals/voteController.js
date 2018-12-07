@@ -129,6 +129,7 @@ angular.module('DDKApp').controller('voteController', ["$scope", "voteModal", "$
                     $scope.errorMessage = resp.data.error;
                     Materialize.toast(($scope.adding?'Vote Error':'DownVote Error'), 3000, 'red white-text');                    
                 } else {
+                    angular.element(document.querySelector("body")).removeClass("ovh");
                     if ($scope.destroy) {
                         $scope.destroy();
                     }

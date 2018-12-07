@@ -13,6 +13,7 @@ angular.module('DDKApp').controller('appController', ['dappsService', '$scope', 
     $scope.diffVersion = 0;
     $scope.subForgingCollapsed = true;
     $scope.categories = {};
+
     $scope.dataToShow = { forging: false }
 
     $scope.getCategoryName = function (id) {
@@ -93,6 +94,7 @@ angular.module('DDKApp').controller('appController', ['dappsService', '$scope', 
         $scope.searchDapp.searchForDappGlobal = '';
     }
 
+
     $scope.modules = [
         'main.dashboard',
         'main.delegates',
@@ -105,35 +107,36 @@ angular.module('DDKApp').controller('appController', ['dappsService', '$scope', 
         'main.dappstore',
         'main.multi',
         'main.explorer',
+        'main.pendingGB',
         'main.stake',
         'main.withdrawl',
         'main.airdropStatistics'
 
     ];
-/*
-    $scope.getPriceTicker = function () {
-        $http.get("https://explorer.ddk.io/api/getPriceTicker")
-            .then(function (response) {
-                $scope.btc_usd = Math.floor(response.data.tickers.BTC.USD * 1000000) / 1000000;
-                $scope.DDK_btc = Math.floor(response.data.tickers.DDK.BTC * 1000000) / 1000000;
-                $scope.DDK_usd = Math.floor(response.data.tickers.DDK.USD * 1000000) / 1000000;
-            });
-    }; */
-
-  /*   $scope.getVersion = function () {
-        $http.get($rootScope.serverUrl + "/api/peers/version").then(function (response) {
-            if (response.data.success) {
-                $scope.version = response.data.version;
-                $http.get("https://login.DDK.io/api/peers/version").then(function (response) {
-                    $scope.latest = response.data.version;
-                    $scope.diffVersion = compareVersion($scope.version, $scope.latest);
+    /*
+        $scope.getPriceTicker = function () {
+            $http.get("https://explorer.ddk.io/api/getPriceTicker")
+                .then(function (response) {
+                    $scope.btc_usd = Math.floor(response.data.tickers.BTC.USD * 1000000) / 1000000;
+                    $scope.DDK_btc = Math.floor(response.data.tickers.DDK.BTC * 1000000) / 1000000;
+                    $scope.DDK_usd = Math.floor(response.data.tickers.DDK.USD * 1000000) / 1000000;
                 });
-            } else {
-                $scope.diffVersion = -1;
-                $scope.version = 'version error';
-            }
-        });
-    }; */
+        }; */
+
+    /*   $scope.getVersion = function () {
+          $http.get($rootScope.serverUrl + "/api/peers/version").then(function (response) {
+              if (response.data.success) {
+                  $scope.version = response.data.version;
+                  $http.get("https://login.DDK.io/api/peers/version").then(function (response) {
+                      $scope.latest = response.data.version;
+                      $scope.diffVersion = compareVersion($scope.version, $scope.latest);
+                  });
+              } else {
+                  $scope.diffVersion = -1;
+                  $scope.version = 'version error';
+              }
+          });
+      }; */
 
     $scope.convertToUSD = function (DDK) {
         return (DDK / 100000000) * $scope.DDK_usd;
@@ -222,6 +225,7 @@ angular.module('DDKApp').controller('appController', ['dappsService', '$scope', 
             });
     }
 
+
     $scope.sendTransaction = function (to) {
         to = to || '';
         $scope.sendTransactionModal = sendTransactionModal.activate({
@@ -232,6 +236,8 @@ angular.module('DDKApp').controller('appController', ['dappsService', '$scope', 
         });
         angular.element(document.querySelector("body")).addClass("ovh");
     }
+
+
 
     $scope.freezeAmount = function () {
         $scope.freezeAmountModal = freezeAmountModal.activate({
@@ -583,12 +589,12 @@ angular.module('DDKApp').controller('appController', ['dappsService', '$scope', 
     }
 
     $scope.getAppData();
-   /*  $scope.getPriceTicker(); */
-   /*  $scope.getVersion(); */
+    /*  $scope.getPriceTicker(); */
+    /*  $scope.getVersion(); */
     $scope.getMasterPassphrase();
-   /*  $timeout(function () {
-        $scope.getVersion();
-    }, 60 * 10 * 1000); */
+    /*  $timeout(function () {
+         $scope.getVersion();
+     }, 60 * 10 * 1000); */
 
     $scope.myClass = [];
     $scope.classAdd = function () {
@@ -603,11 +609,10 @@ angular.module('DDKApp').controller('appController', ['dappsService', '$scope', 
         if ($scope.myClass.length != 0) {
             $scope.classRemove();
         } else {
-            if($state.current.name != 'main.explorer' ) return;
+            if ($state.current.name != 'main.explorer') return;
             $scope.classAdd();
         }
     }
 
 }]);
-
 

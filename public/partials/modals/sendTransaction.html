@@ -14,10 +14,21 @@
                     <div class="popupHeight">
                     <div class="modal-header clearfix">
                         <div>
-                            <h2>{{'Send DDK'|translate}}</h2>
+                            <h2>{{'Confirmations, Are you sure?.'|translate}}</h2>
                         </div>
-                        <div>
-                            <translate>Please enter the Recipient Address and DDK Amount that you would like send below.</translate>
+                        <!-- <h2>
+                                <translate>Are you sure?.</translate>
+                            </h2> -->
+                    </div>
+                    <div class="modal-body confirmations-message">
+                        <i class="mdi-alert-error"></i>
+                        <p>Are you sure that you want to send this Transaction</p>
+                        <div class="final-detail-show">
+                            <span>Receiver Address : {{to}}</span>
+                            <br>
+                            <span>Value of DDK : {{amount}}</span>
+                            <br>
+                            <span>Fee : {{fee }} DDK
                         </div>
                     </div>
                     <div class="modal-body">
@@ -66,8 +77,7 @@
                                 <input type="submit" value="{{'Cancel' | translate}}" ng-click="close()" class="btn-flat" />
                             </li>
                             <li>
-                                <input type="submit" value="{{'send DDK' | translate}}" ng-click="checkStatus()" class="btn-flat blue-link" ng-class="{'disabled': sending}"
-                                    ng-disabled="sending" />
+                                <input type="submit" value="{{'Yes, Send It' | translate}}" ng-click="confirmationsPopup()" class="btn-flat blue-link" />
                             </li>
                         </ul>
                     </div>
