@@ -38,15 +38,6 @@
                                 <span class="fee-text flat-text pull-right" ng-show="amount"><translate>Fee: {{fee }} DDK</span>
                                 <span class="pass-error" ng-show="errorMessage.amount">{{errorMessage.amount}}</span>
                             </div>
-                            <!-- <div class="field-padding">
-                                <div class="input-field">
-                                    <input id="adminCode" type="password" ng-model="adminCode">
-                                    <label for="adminCode">
-                                        <translate>Admin Code</translate>
-                                    </label>
-                                    <span class="pass-error" ng-show="errorMessageAdmin">{{errorMessageAdmin}}</span>
-                                </div>
-                            </div> -->
                             <p class="error-container" ng-show="errorMessage.fromServer">
                                 <span class="pass-error">{{errorMessage.fromServer}}</span>
                             </p>
@@ -219,7 +210,6 @@
                         </div>
                     </div>
                     <div class="modal-body">
-                        <!-- <form ng-submit="passcheck()"> -->
                         <form ng-submit="passcheck('', otpNumber)">
                             <div class="field-padding">
                                 <div class="input-field">

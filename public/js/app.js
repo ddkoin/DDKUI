@@ -129,15 +129,4 @@ DDKApp.config([
                 }
             });
     });
-
-    // user authentication upon page forward/back for currently logged-in user
-   /*  $rootScope.$on('$stateChangeStart', function (e, toState, toParams, fromState, fromParams) {
-
-        AuthService.getUserStatus()
-            .then(function () {
-                if (!AuthService.isLoggedIn() && toState.url != '/referal/:id' && toState.url != '/existingETPSUser') {
-                    $state.go('passphrase');
-                }
-            });
-    }); */
 });

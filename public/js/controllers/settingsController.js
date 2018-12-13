@@ -156,8 +156,6 @@ angular.module('DDKApp').controller('settingsController', ['$scope', '$rootScope
                         $scope.incrementStep();
 
                     }
-                    //$scope.presendError = false;
-                    //$scope.errorMessage = {};
                 });
         }
         if (stepIndex === 1) {
@@ -191,7 +189,7 @@ angular.module('DDKApp').controller('settingsController', ['$scope', '$rootScope
         }
         if (stepIndex === 3) {
             $scope.successMessage = {};
-            // $scope.enableTwoFactor = function (twoFactor) {
+            
             var data = {
                 publicKey: userService.publicKey,
                 key: $scope.settings.twoFactor.key,
@@ -213,7 +211,6 @@ angular.module('DDKApp').controller('settingsController', ['$scope', '$rootScope
                     } else {
                         $scope.presendError = true;
                         $scope.errorMessage.fromServer = resp.data.error;
-                        //$scope.twoFactorKey = 'No Key. Please check previous step.'
                     }
                 });
         }

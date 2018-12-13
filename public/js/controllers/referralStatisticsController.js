@@ -33,10 +33,7 @@ angular.module('DDKApp').controller('referralStatisticsController', ['$scope', '
     // Referral List
     $scope.tableReferral = new ngTableParams({
         page: 1,
-        count: 4,
-        /* sorting: {
-            level: 'desc'
-        } */
+        count: 4
     }, {
             total: 0,
             counts: [],

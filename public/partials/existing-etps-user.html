@@ -28,13 +28,6 @@
                         </label>
                         <span class="pass-error" ng-show="errorMessage"> {{errorMessage}}</span>
                     </div>
-                    <!-- <div class="input-field">
-                        <input id="adminCode" type="password" ng-model="adminCode">
-                        <label for="adminCode">
-                            <translate>Admin Code</translate>
-                        </label>
-                        <span class="pass-error" ng-show="errorMessageAdmin">{{errorMessageAdmin}}</span>
-                    </div> -->
                     <div class="row auth-btn m-t-20">
                         <div class="col-md-4">
                             <a class="btn btn-primary btn-block" ng-click="validateExistingUser(username, password, adminCode)" ng-disabled="!password">

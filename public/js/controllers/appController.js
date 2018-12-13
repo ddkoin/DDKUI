@@ -110,30 +110,6 @@ angular.module('DDKApp').controller('appController', ['dappsService', '$scope', 
         'main.airdropStatistics'
 
     ];
-/*
-    $scope.getPriceTicker = function () {
-        $http.get("https://explorer.ddk.io/api/getPriceTicker")
-            .then(function (response) {
-                $scope.btc_usd = Math.floor(response.data.tickers.BTC.USD * 1000000) / 1000000;
-                $scope.DDK_btc = Math.floor(response.data.tickers.DDK.BTC * 1000000) / 1000000;
-                $scope.DDK_usd = Math.floor(response.data.tickers.DDK.USD * 1000000) / 1000000;
-            });
-    }; */
-
-  /*   $scope.getVersion = function () {
-        $http.get($rootScope.serverUrl + "/api/peers/version").then(function (response) {
-            if (response.data.success) {
-                $scope.version = response.data.version;
-                $http.get("https://login.DDK.io/api/peers/version").then(function (response) {
-                    $scope.latest = response.data.version;
-                    $scope.diffVersion = compareVersion($scope.version, $scope.latest);
-                });
-            } else {
-                $scope.diffVersion = -1;
-                $scope.version = 'version error';
-            }
-        });
-    }; */
 
     $scope.convertToUSD = function (DDK) {
         return (DDK / 100000000) * $scope.DDK_usd;
@@ -407,10 +383,7 @@ angular.module('DDKApp').controller('appController', ['dappsService', '$scope', 
                 $scope.username = response.username;
                 userService.username = response.username;
             }
-            // if ($scope.delegateInRegistration) {
-            //     $scope.delegateInRegistration = !(!!response);
-            //     userService.setDelegateProcess($scope.delegateInRegistration);
-            // }
+
             $scope.delegate = response;
             userService.setDelegate($scope.delegate);
             if (!response.noDelegate) {
@@ -498,10 +471,10 @@ angular.module('DDKApp').controller('appController', ['dappsService', '$scope', 
 
     $scope.$on('socket:blocks/change', function (ev, data) {
        /* $scope.getAppData();
-        $scope.updateViews([
+          $scope.updateViews([
             'main.blockchain',
             'main.dashboard'
-        ]); */
+         ]); */
     });
 
     $scope.$on('socket:delegates/change', function (ev, data) {
@@ -583,8 +556,6 @@ angular.module('DDKApp').controller('appController', ['dappsService', '$scope', 
     }
 
     $scope.getAppData();
-   /*  $scope.getPriceTicker(); */
-   /*  $scope.getVersion(); */
     $scope.getMasterPassphrase();
    /*  $timeout(function () {
         $scope.getVersion();
