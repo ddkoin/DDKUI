@@ -44,6 +44,8 @@ angular.module('DDKApp').service('AuthService', ['$http', 'userService', '$windo
                     $rootScope.agreeConfirmationModal = agreeConfirmationModal.activate({
                 
                     });
+
+                    angular.element(document.querySelector("body")).addClass("ovh");
                 }
             } else {
                 user = false;
