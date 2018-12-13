@@ -59,20 +59,23 @@
     text-align: center;
   }
 }
-[type=checkbox].filled-in:checked+label:after{
-  border: 2px solid #076da5;
-  background-color: #0187d1;
+.agreeConfirmation{
+  [type=checkbox].filled-in:checked+label:after{
+    border: 2px solid #076da5;
+    background-color: #0187d1;
+  }
 }
 
-[type=checkbox].filled-in:not(:checked)+label:after {
-  border: 2px solid #46535f!important;
+.agreeConfirmation{
+  [type=checkbox].filled-in:not(:checked)+label:after{
+    border: 2px solid #337ab7!important;
+  }
 }
 
 
 /* AgreeConfirmation Modal */
 .agree{
   padding: 15px;
-
   p{
 line-height: 20px;
     margin-bottom: 15px;

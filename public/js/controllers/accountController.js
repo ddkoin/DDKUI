@@ -108,26 +108,6 @@ angular.module('DDKApp').controller('accountController', ['$state', '$scope', '$
         });
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     $scope.getAccount = function () {
         $http.get($rootScope.serverUrl + "/api/accounts", { params: { address: userService.address } }).then(function (resp) {
             $scope.view.inLoading = false;
