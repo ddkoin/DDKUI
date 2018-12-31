@@ -31,23 +31,18 @@
                         <form ng-submit="disableTwoFactor(otpNumber)">
                             <div class="field-padding">
                                 <div class="input-field">
-                                    <input id="otpNumber" type="password"  ng-model="otpNumber" ng-class="{'invalid': errorMessage.otpNumber}">
+                                    <input id="otpNumber" type="text" ng-model="otpNumber" ng-class="{'invalid': errorMessage.otpNumber}">
                                     <label for="Amount">
                                         <translate>Enter your OTP Number</translate>
                                     </label>
                                 </div>
 
-                         <div class="error-container" ng-show="errorMessage.otpNumber">
-                                <span class="pass-error">{{errorMessage.otpNumber}}</span>
+                         <div class="error-container" ng-show="errorMessage.fromServer">
+                                <span class="pass-error">{{errorMessage.fromServer}}</span>
                          </div> 
                              <input type="submit" ng-show="false">
-
-                                <!-- <span class="pass-error" ng-show="errorMessage.otpNumber">{{errorMessage.otpNumber}}</span> -->
-                            </div>
-                            <!-- <p class="error-container" ng-show="errorMessage.fromServer">
-                                <span class="pass-error">{{errorMessage.fromServer}}</span>
-                            </p> -->
-                            <!-- <input type="submit" ng-show="false"> -->
+                             </div>
+                           
                         </form>
                     </div>
 

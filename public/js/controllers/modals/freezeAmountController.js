@@ -9,6 +9,7 @@ angular.module('DDKApp').controller('freezeAmountController', ['$scope', '$rootS
     $scope.errorMessage = {};
     $scope.checkSecondPass = false;
     $scope.secondPassphrase = userService.secondPassphrase;
+    $scope.publicKey = userService.getPublicKey();
     $scope.confirmations = false;
     $scope.errorMessage.fromServer = false;
     $scope.balance = userService.getBalance();
@@ -123,9 +124,15 @@ angular.module('DDKApp').controller('freezeAmountController', ['$scope', '$rootS
         }
         /* if ($scope.rememberedPassphrase) {
             validateForm(function () {
+                if (!$scope.secondPassphrase) {
+                    $scope.confirmations = true;
+                }
+                else {
+                    $scope.checkSecondPass = true;
+                    $scope.focus = 'secondPhrase';
+                }
                 $scope.presendError = false;
                 $scope.errorMessage = {};
-                $scope.freezeOrder($scope.rememberedPassphrase);
             });
         } */
         if ($scope.rememberedPassphrase) {
@@ -165,7 +172,6 @@ angular.module('DDKApp').controller('freezeAmountController', ['$scope', '$rootS
         $scope.freezeOrder($scope.rememberedPassphrase);
     }
 
-
     $scope.confirmPassphrasePopup = function(secret,withSecond) {
 
         $scope.errorMessage.fromServer = false;
@@ -191,10 +197,10 @@ angular.module('DDKApp').controller('freezeAmountController', ['$scope', '$rootS
     }
 
 
-
     $scope.freezeOrder = function(secretPhrase){
-        /* $rootScope.secretPhrase = secretPhrase;
-        if ($scope.secondPassphrase && !withSecond) {
+        // $rootScope.secretPhrase = secretPhrase;
+/*         if ($scope.secondPassphrase && !withSecond) {
+            $scope.confirmations = true;
             $scope.checkSecondPass = true;
             $scope.focus = 'secondPhrase';
             return;
@@ -203,7 +209,7 @@ angular.module('DDKApp').controller('freezeAmountController', ['$scope', '$rootS
         $scope.errorMessage = {};
 
         var data = {
-            secret: secretPhrase,
+            secret: secretPhrase || $scope.secretPhrase,
             freezedAmount: $scope.convertDDK($scope.fAmount),
             publicKey: userService.publicKey
         };
@@ -223,6 +229,7 @@ angular.module('DDKApp').controller('freezeAmountController', ['$scope', '$rootS
                     if (resp.data.success) {
                         Materialize.toast('Stake Success', 3000, 'green white-text');
                         freezeAmountModal.deactivate();
+                        angular.element(document.querySelector("body")).removeClass("ovh");
                         $rootScope.enableReferOption = resp.data.referStatus;
                     } else {
                         Materialize.toast('Stake Error', 3000, 'red white-text');

@@ -1,9 +1,7 @@
-require('angular');
-
 angular.module('DDKApp').controller('agreeConfirmationController', ["$scope", "$http", "$rootScope", "userService", "agreeConfirmationModal", function ($scope, $http, $rootScope, userService, agreeConfirmationModal) {
 
     $scope.agreeConfirmation = function () {
-        if ($scope.showFullTime == true) {
+            if ($scope.showFullTime == true) {
             $http.post($rootScope.serverUrl + '/api/accounts/updateUserStatus', {
                 address: userService.address,
                 status: "AGREED"

@@ -42,19 +42,8 @@ angular.module('DDKApp').controller('newUserMigrationController', ["$scope", "$h
         FS.saveAs(blob, "DDKPassphrase.txt");
     }
 
-    $scope.migrateData = function (data, address) {
-        //update database tables : mem_accounts and stakeOrder table
-        $http.post($rootScope.serverUrl + "/api/accounts/migrateData/", {
-            data: data,
-            address: address
-        }).then(function (resp) {
-
-        });
-
-    }
-
     $scope.login = function (pass,email) {
-        
+
         var data = { secret: pass };
         if (!Mnemonic.isValid(pass) || $scope.newPassphrase != pass) {
             $scope.errorMessage = 'The passphrase entered doesn\'t match with the one generated before.Please go back';
@@ -67,11 +56,12 @@ angular.module('DDKApp').controller('newUserMigrationController', ["$scope", "$h
                 if (resp.data.success) {
                     $window.localStorage.setItem('token', resp.data.account.token);
                     newUserMigration.deactivate();
-                    userService.setData(resp.data.account.address, resp.data.account.publicKey, resp.data.account.balance, resp.data.account.unconfirmedBalance, resp.data.account.effectiveBalance, resp.data.account.token, resp.data.account.totalFrozeAmount, resp.data.account.username, resp.data.account.groupBonus);
+                    angular.element(document.querySelector("body")).removeClass("ovh");
+                    userService.setData(resp.data.account.address, resp.data.account.publicKey, resp.data.account.balance, resp.data.account.unconfirmedBalance, resp.data.account.effectiveBalance, resp.data.account.token, resp.data.account.totalFrozeAmount, resp.data.account.username,resp.data.account.groupBonus);
                     userService.setForging(resp.data.account.forging);
                     userService.setSecondPassphrase(resp.data.account.secondSignature);
                     userService.unconfirmedPassphrase = resp.data.account.unconfirmedSignature;
-                    $scope.migrateData($scope.dataVar,resp.data.account.address);
+                    $rootScope.referList = null;
                     $state.go('main.dashboard');
                 } else {
                     console.error("Login failed. Failed to open account.");
@@ -79,7 +69,6 @@ angular.module('DDKApp').controller('newUserMigrationController', ["$scope", "$h
             });
         }
     }
-
     $scope.close = function () {
         newUserMigration.deactivate();
         angular.element(document.querySelector("body")).removeClass("ovh");

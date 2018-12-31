@@ -5,19 +5,17 @@ angular.module('DDKApp').controller('otpConfirmationController', ["$scope", "$ht
     $scope.successMessage = {};
     $scope.errorMessage = {};
 
-
-   /*Close Method*/
-    $scope.close = function (openAnyway) {
+     /*Close Verify Modal*/
+       $scope.close = function (openAnyway) {
         if ($scope.destroy) {
             $scope.destroy(openAnyway);
         }
         otpConfirmationModal.deactivate();
     }
 
-
     $scope.disableTwoFactor = function (otp) {
-       //console.log("--------", otp);
-        if (!otp) {
+        console.log('OTP :  ', otp);
+            if (!otp) {
             $scope.presendError = true;
             $scope.errorMessage.otpNumber = 'Please input valid OTP';
             return;

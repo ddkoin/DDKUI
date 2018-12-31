@@ -72,7 +72,8 @@ angular.module('DDKApp').controller('referalController', ["$scope", "$http", "$r
                 if (resp.data.success) {
                     $window.localStorage.setItem('token', resp.data.account.token);
                     newUser.deactivate();
-                    userService.setData(resp.data.account.address, resp.data.account.publicKey, resp.data.account.balance, resp.data.account.unconfirmedBalance, resp.data.account.effectiveBalance, resp.data.account.token, resp.data.account.totalFrozeAmount, resp.data.account.username, resp.data.account.groupBonus);
+                    angular.element(document.querySelector("body")).removeClass("ovh");
+                    userService.setData(resp.data.account.address, resp.data.account.publicKey, resp.data.account.balance, resp.data.account.unconfirmedBalance, resp.data.account.effectiveBalance, resp.data.account.token, resp.data.account.totalFrozeAmount,resp.data.account.username,resp.data.account.groupBonus);
                     userService.setForging(resp.data.account.forging);
                     userService.setSecondPassphrase(resp.data.account.secondSignature);
                     userService.unconfirmedPassphrase = resp.data.account.unconfirmedSignature;
@@ -93,5 +94,4 @@ angular.module('DDKApp').controller('referalController', ["$scope", "$http", "$r
     }
 
    $scope.generatePassphrase();
-    
 }]);

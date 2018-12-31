@@ -17,14 +17,12 @@ require('../../js/controllers/walletPendingsController');
 require('../../js/controllers/dappsController');
 require('../../js/controllers/dappController');
 require('../../js/controllers/dappsCategoryController');
-require('../../js/controllers/explorerController');
-require('../../js/controllers/pendingGBController');
 require('../../js/controllers/stakeController');
 require('../../js/controllers/esController');
 require('../../js/controllers/withdrawlController');
 require('../../js/controllers/referalController');
 require('../../js/controllers/referralStatisticsController');
-
+require('../../js/controllers/migrationController');
 
 // Modals
 require('../../js/controllers/modals/blockModalController');

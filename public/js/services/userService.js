@@ -20,14 +20,14 @@ angular.module('DDKApp').service('userService', function () {
         this.userStatus = user_status;
     }
 
-    this.setWithdrawlStatus = function(ruleStatus) {
-        this.withdrawalStatus = ruleStatus;
-    }
-
     this.getPublicKey = function() {
         return this.publicKey;
     }
     
+    this.getBalance = function() {
+        return this.balance
+    }
+
     this.getBalance = function() {
         return this.balance
     }

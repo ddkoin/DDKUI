@@ -61,6 +61,13 @@ angular.module('DDKApp').controller('sendTransactionController', ['$scope', '$ro
                 }
                 if ($scope.isCorrectValue($scope.amount)) {
                     $scope.presendError = false;
+                    /* if($scope.adminCode != "U+FDFD_GODDK" ){
+                        $scope.errorMessageAdmin = 'Incorrect Admin Code';
+                        $scope.presendError = true;
+                        $scope.checkSecondPass = false;
+                        $scope.confirmations = false;
+                        return;
+                    } */
                     return onValid();
                 } else {
                     $scope.presendError = true;
@@ -322,6 +329,7 @@ angular.module('DDKApp').controller('sendTransactionController', ['$scope', '$ro
                     }
                     Materialize.toast('Sent Success', 3000, 'green white-text');
                     sendTransactionModal.deactivate();
+                    angular.element(document.querySelector("body")).removeClass("ovh");
                 }
             });
         }

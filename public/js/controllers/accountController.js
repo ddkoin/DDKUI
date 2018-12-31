@@ -55,6 +55,7 @@ angular.module('DDKApp').controller('accountController', ['$state', '$scope', '$
             }
         }).then(function (response) {
             transactionInfo.deactivate();
+            angular.element(document.querySelector("body")).removeClass("ovh");
             $scope.modal = blockInfo.activate({ block: response.data.block });
             angular.element(document.querySelector("body")).addClass("ovh");
         }
@@ -79,7 +80,7 @@ angular.module('DDKApp').controller('accountController', ['$state', '$scope', '$
         angular.element(document.querySelector("body")).addClass("ovh");
     }
 
-    $scope.getTransactions = function () {
+    /* $scope.getTransactions = function () {
         $http.get($rootScope.serverUrl + "/api/transactions", {
             params: {
                 senderPublicKey: userService.publicKey,
@@ -107,7 +108,59 @@ angular.module('DDKApp').controller('accountController', ['$state', '$scope', '$
                 });
             });
         });
+    } */
+
+    $scope.getTransactions = function () {
+        $http.get($rootScope.serverUrl + "/api/transactions", {
+            params: {
+                senderPublicKey: userService.publicKey,
+                recipientId: $scope.address,
+                limit: 8,
+                orderBy: 'timestamp:desc'
+            }
+        }).then(function (resp) {
+            var transactions = resp.data.transactions;
+            $http.get($rootScope.serverUrl + '/api/transactions/unconfirmed', {
+                params: {
+                    senderPublicKey: userService.publicKey,
+                    address: userService.address
+                }
+            }).then(function (resp) {
+                var unconfirmedTransactions = resp.data.transactions;
+                
+                $timeout(function () {
+                    $scope.transactions = _.compact(
+                        unconfirmedTransactions.concat(transactions).slice(0, 8)
+                    );
+                    $scope.unconfirmedTransactions = _.compact(
+                        unconfirmedTransactions.slice(0, 8)
+                    );
+                    //console.log("$scope.unconfirmedTransactions :",$scope.unconfirmedTransactions);
+
+                });
+            });
+        });
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     $scope.getAccount = function () {
         $http.get($rootScope.serverUrl + "/api/accounts", { params: { address: userService.address } }).then(function (resp) {
@@ -177,7 +230,7 @@ angular.module('DDKApp').controller('accountController', ['$state', '$scope', '$
                     var totalCount = resp.data.totalAccountHolders;
                     $scope.totalCount = JSON.parse(totalCount);
                     var circulatingSupply = resp.data.totalCirculatingSupply / 100000000;
-                    $scope.circulatingSupply = parseInt(circulatingSupply);
+                    $scope.circulatingSupply = parseFloat(circulatingSupply);
                 } else {
                     console.log('Error in getDashboardDDKData : ',resp.data.error);
                 }
@@ -202,6 +255,7 @@ angular.module('DDKApp').controller('accountController', ['$state', '$scope', '$
                 }
             }
         });
+        angular.element(document.querySelector("body")).addClass("ovh");
     }
 
     $scope.referralLink = function () {
