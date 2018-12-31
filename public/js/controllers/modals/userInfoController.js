@@ -8,7 +8,6 @@ angular.module('DDKApp').controller('userInfoController', ["$scope", "$http", "$
 
     $scope.sendTransactionToUser = function () {
         userInfo.deactivate();
-        angular.element(document.querySelector("body")).removeClass("ovh");
         $scope.sendTransactionModal = sendTransactionModal.activate({
             totalBalance: $scope.unconfirmedBalance,
             to: $scope.userId,
@@ -28,7 +27,6 @@ angular.module('DDKApp').controller('userInfoController', ["$scope", "$http", "$
         .then(function (resp) {
             if (resp.data.account) {
                 $scope.account = resp.data.account;
-                console.log("$scope.account :",$scope.account)
             } else {
                 $scope.account = { address: userId, publicKey: null };
             }

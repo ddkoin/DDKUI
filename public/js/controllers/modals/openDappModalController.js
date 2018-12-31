@@ -7,7 +7,6 @@ angular.module('DDKApp').controller('openDappModalController', ["$scope", "openD
             $scope.destroy(openAnyway);
         }
         openDappModal.deactivate();
-        angular.element(document.querySelector("body")).removeClass("ovh");
     }
 
     $scope.openAnyway = function (openAnyway) {

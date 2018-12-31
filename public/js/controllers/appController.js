@@ -234,7 +234,6 @@ angular.module('DDKApp').controller('appController', ['dappsService', '$scope', 
             destroy: function () {
             }
         });
-        angular.element(document.querySelector("body")).addClass("ovh");
     }
 
 
@@ -244,7 +243,6 @@ angular.module('DDKApp').controller('appController', ['dappsService', '$scope', 
             destroy: function () {
             }
         });
-        angular.element(document.querySelector("body")).addClass("ovh");
     }
 
 
@@ -254,7 +252,6 @@ angular.module('DDKApp').controller('appController', ['dappsService', '$scope', 
             destroy: function () {
             }
         });
-        angular.element(document.querySelector("body")).addClass("ovh");
     }
 
     $scope.enableForging = function () {
@@ -276,7 +273,6 @@ angular.module('DDKApp').controller('appController', ['dappsService', '$scope', 
                                 $scope.dataToShow.forging = $scope.forging;
                             }
                         })
-                        angular.element(document.querySelector("body")).addClass("ovh");
                     }
                 });
         } else {
@@ -291,7 +287,6 @@ angular.module('DDKApp').controller('appController', ['dappsService', '$scope', 
 
                 }
             })
-            angular.element(document.querySelector("body")).addClass("ovh");
         }
     }
 
@@ -317,7 +312,6 @@ angular.module('DDKApp').controller('appController', ['dappsService', '$scope', 
                                 $scope.dataToShow.forging = $scope.forging;
                             }
                         })
-                        angular.element(document.querySelector("body")).addClass("ovh");
                     }
                 });
         } else {
@@ -330,7 +324,6 @@ angular.module('DDKApp').controller('appController', ['dappsService', '$scope', 
                     $scope.getForging($scope.setForgingText);
                 }
             })
-            angular.element(document.querySelector("body")).addClass("ovh");
         }
     }
 
@@ -404,7 +397,6 @@ angular.module('DDKApp').controller('appController', ['dappsService', '$scope', 
                 $scope.getDelegate();
             }
         })
-        angular.element(document.querySelector("body")).addClass("ovh");
     }
 
     $scope.getDelegate = function () {
@@ -457,11 +449,9 @@ angular.module('DDKApp').controller('appController', ['dappsService', '$scope', 
 
     $scope.myUserInfo = function () {
         $scope.modal = userInfo.activate({ userId: userService.address });
-        angular.element(document.querySelector("body")).addClass("ovh");
     }
-
- 
-   $scope.logout = function () {
+    /*logout Method*/
+    $scope.logout = function () {
         $http.post($rootScope.serverUrl + "/api/accounts/logout", { address: userService.getAddress(), token: $window.localStorage.getItem('token') }).then(function (res) {
             agreeConfirmationModal.deactivate();
             $window.localStorage.setItem('token', '');
@@ -469,7 +459,7 @@ angular.module('DDKApp').controller('appController', ['dappsService', '$scope', 
         });
     }
 
-   $scope.syncInterval = $interval(function () {
+    $scope.syncInterval = $interval(function () {
         $scope.getSync();
     }, 1000 * 30);
 
@@ -503,11 +493,11 @@ angular.module('DDKApp').controller('appController', ['dappsService', '$scope', 
     });
 
     $scope.$on('socket:blocks/change', function (ev, data) {
-       /* $scope.getAppData();
+        $scope.getAppData();
         $scope.updateViews([
             'main.blockchain',
             'main.dashboard'
-        ]); */
+        ]);
     });
 
     $scope.$on('socket:delegates/change', function (ev, data) {
@@ -550,10 +540,10 @@ angular.module('DDKApp').controller('appController', ['dappsService', '$scope', 
 
     $scope.$on('socket:updateConnected', function (ev, data) {
         $scope.totalConnected = data;
-       /* $scope.getAppData();
+        $scope.getAppData();
         $scope.updateViews([
             'main.dashboard'
-        ]);  */
+        ]);
     });
 
     //Autoupdate stake Table 

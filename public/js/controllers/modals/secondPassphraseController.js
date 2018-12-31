@@ -81,7 +81,6 @@ angular.module('DDKApp').controller('secondPassphraseModalController', ["$scope"
 
                     Materialize.toast('Transaction sent', 3000, 'green white-text');
                     secondPassphraseModal.deactivate();
-                    angular.element(document.querySelector("body")).removeClass("ovh");
                 }
             });
         }

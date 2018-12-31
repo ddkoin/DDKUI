@@ -28,21 +28,18 @@
   li {
     position: relative;
     list-style: none;
-    color:@white;
+    color: #fff;
     height: inherit;
     &:hover {
     }
     &.active {
       opacity: 1;
       background-color: @gray3;
-      a{
-        border-left: #0187d1 5px solid;
-      }
     }
     > a {
       display: block;
       padding: 14px 0 14px 16px;
-      color:@white;
+      color: #fff;
     }
   }
   #submenu {
@@ -59,26 +56,28 @@
 
 span.menu-text {
   display: inline-block;
-  padding-top: 2px;
-  padding-left: 15px;
+  padding-top: 6px;
+  padding-left: 40px;
   color: @grey-white;
   font-size: @content-text;
   font-weight: 400;
 }
 
 .nav-icon {
-  height: 18px;
-  width: 18px;
+  background-image: url('@{images}/sprites/navicons.png');
+  height: 22px;
+  width: 22px;
   float: left;
-  font-size: 18px;
-  color:@white;
+  margin-top: 2px;
+  margin-bottom: -2px;
 }
 
-/* #dashboard-icon {
+#dashboard-icon {
+  background-position: -89px 0;
   .active & {
-    color: #0288d1;
+    background-position: -89px -22px;
   }
-} */
+}
 
 #multi-icon {
   background-position: -110px 0;
@@ -203,6 +202,7 @@ span.menu-text {
     }
   }
 }
+
 #header {
   background-color: @brown;
   min-height: 65px;
@@ -284,7 +284,10 @@ span.menu-text {
       top: 0;
       background-image: none;
       outline: 0;
+      /*-webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, .3);
+      box-shadow: inset 0 3px 5px rgba(0, 0, 0, .3);*/
     }
+
   }
   #title {
     display: block;
@@ -313,21 +316,30 @@ span.menu-text {
       display: block;
       width: 100%;
     }
+
   }
   #balance {
     position: relative;
     top: 1px;
-    line-height: 36px!important;
+    line-height: 36px;
     padding: 0px 16px;
     border-radius: @border-radius;
     color: @white;
-    font-size: 12px;
+    font-size: 1rem;
     background-color: @brown1;
     min-width: 60px;
     text-align: right;
     display: inline-block;
   }
 }
+
+/*[ui-view].child-slider.ng-enter, [ui-view].child-slider.ng-leave, [ui-view].ng-enter, [ui-view].ng-leave {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both
+}*/
+
 @-webkit-keyframes fadeInRight {
   0% {
     opacity: 0;
@@ -341,6 +353,7 @@ span.menu-text {
     transform: none
   }
 }
+
 @keyframes fadeInRight {
   0% {
     opacity: 0;
@@ -348,6 +361,7 @@ span.menu-text {
     -ms-transform: translate3d(100%, 0, 0);
     transform: translate3d(100%, 0, 0)
   }
+
   100% {
     opacity: 1;
     -webkit-transform: none;
@@ -355,20 +369,24 @@ span.menu-text {
     transform: none
   }
 }
+
 @-webkit-keyframes fadeOutRight {
   0% {
     opacity: 1
   }
+
   100% {
     opacity: 0;
     -webkit-transform: translate3d(100%, 0, 0);
     transform: translate3d(100%, 0, 0)
   }
 }
+
 @keyframes fadeOutRight {
   0% {
     opacity: 1
   }
+
   100% {
     opacity: 0;
     -webkit-transform: translate3d(100%, 0, 0);
@@ -376,6 +394,7 @@ span.menu-text {
     transform: translate3d(100%, 0, 0)
   }
 }
+
 @-webkit-keyframes fadeOutLeft {
   0% {
     opacity: 1
@@ -387,10 +406,12 @@ span.menu-text {
     transform: translate3d(-100%, 0, 0)
   }
 }
+
 @keyframes fadeOutLeft {
   0% {
     opacity: 1
   }
+
   100% {
     opacity: 0;
     -webkit-transform: translate3d(-100%, 0, 0);
@@ -398,18 +419,21 @@ span.menu-text {
     transform: translate3d(-100%, 0, 0)
   }
 }
+
 @-webkit-keyframes fadeInLeft {
   0% {
     opacity: 0;
     -webkit-transform: translate3d(-100%, 0, 0);
     transform: translate3d(-100%, 0, 0)
   }
+
   100% {
     opacity: 1;
     -webkit-transform: none;
     transform: none
   }
 }
+
 @keyframes fadeInLeft {
   0% {
     opacity: 0;
@@ -425,6 +449,27 @@ span.menu-text {
     transform: none
   }
 }
+
+/*[ui-view].ng-enter {
+  -webkit-animation-name: fadeInLeft;
+  animation-name: fadeInLeft
+}
+
+[ui-view].child-slider.ng-enter-active{
+  -webkit-animation-name: fadeInRight;
+  animation-name: fadeInRight
+}
+
+[ui-view].ng-leave {
+  -webkit-animation-name: fadeOutLeft;
+  animation-name: fadeOutLeft
+}
+
+[ui-view].child-slider.ng-leave-active {
+  -webkit-animation-name: fadeOutRight;
+  animation-name: fadeOutRight
+}*/
+
 #inc {
   font-size: 14px;
   width: 198px;
@@ -434,10 +479,12 @@ span.menu-text {
   padding-left: 26px;
   color: #606365;
 }
+
 #right-part {
   background-color: #ebeced;
   height: 100%;
 }
+
 .DDK-icon {
   position: absolute;
   top: 0;
@@ -450,6 +497,7 @@ span.menu-text {
   background-repeat: no-repeat;
   background-position: 0 0;
 }
+
 .dapp-icon {
   position: absolute;
   top: 0;
@@ -462,9 +510,12 @@ span.menu-text {
   background-repeat: no-repeat;
   background-position: -160px 0;
 }
+
 .backBackBtn{
+  font-size: 24px !important;
   margin-right: 5px !important;
 }
+
 .sendFreezeAmount-btn{
   i{
     font-size: 16px;

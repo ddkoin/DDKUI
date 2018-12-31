@@ -29,7 +29,6 @@ angular.module('DDKApp').controller('settingsController', ['$scope', '$rootScope
         $scope.view.page = { title: gettextCatalog.getString('Settings'), previous: null };
     }
 
-
     // Refresh $scope.view.page object on change of language.
     $rootScope.$on('gettextLanguageChanged', setPage);
     // Set $scope.view.page at runtime.
@@ -85,7 +84,6 @@ angular.module('DDKApp').controller('settingsController', ['$scope', '$rootScope
                 }, 1000);
             }
         });
-        angular.element(document.querySelector("body")).addClass("ovh");
     }
 
     $scope.steps = [
@@ -234,27 +232,6 @@ angular.module('DDKApp').controller('settingsController', ['$scope', '$rootScope
                 }
             })
     }
-
-
-
-
-    // $scope.disableTwoFactor = function () {
-    //     var data = {
-    //         publicKey: userService.publicKey
-    //     };
-    //     $http.post($rootScope.serverUrl + '/api/accounts/disableTwoFactor', data)
-    //         .then(function (resp) {
-    //             if (resp.data.success) {
-    //                 $scope.enable = true;
-    //                 $scope.disable = false;
-    //                 Materialize.toast('2FA Disable', 3000, 'red white-text');
-    //             }
-    //         })
-    // }
-
-
-
-
 
 }]);
 

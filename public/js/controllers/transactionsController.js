@@ -16,12 +16,10 @@ angular.module('DDKApp').controller('transactionsController', ['$scope', '$rootS
 
     $scope.userInfo = function (userId) {
         $scope.modal = userInfo.activate({userId: userId});
-        angular.element(document.querySelector("body")).addClass("ovh");
     }
 
     $scope.transactionInfo = function (transaction) {
         $scope.modal = transactionInfo.activate({ transaction: transaction });
-        angular.element(document.querySelector("body")).addClass("ovh");
     }
 
     $scope.blockInfo = function (blockID) {
@@ -31,7 +29,6 @@ angular.module('DDKApp').controller('transactionsController', ['$scope', '$rootS
             }
         }).then(function (resp) {
             transactionInfo.deactivate();
-            angular.element(document.querySelector("body")).removeClass("ovh");
             var tmp = [];
             var keys = Object.keys(resp.data.block);
             for (var j = 0; j < keys.length; j++) {
@@ -43,14 +40,13 @@ angular.module('DDKApp').controller('transactionsController', ['$scope', '$rootS
                 tmp[key] = resp.data.block[keys[j]];
             }
             $scope.modal = blockInfo.activate({ block: tmp });
-            angular.element(document.querySelector("body")).addClass("ovh");
         });
     }
 
     // Transactions
     $scope.tableTransactions = new ngTableParams({
         page: 1,
-        count: 10,
+        count: 25,
         sorting: {
             height: 'desc'
         }

@@ -1,4 +1,4 @@
-require('angular');
+ require('angular');
 
 angular.module('DDKApp').factory('agreeConfirmationModal', function (btfModal) {
     return btfModal({

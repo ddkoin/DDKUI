@@ -95,7 +95,6 @@ angular.module('DDKApp').controller('sendFreezeOrderController', ['$scope', '$ro
                     if (resp.data.success) {
                         Materialize.toast('Sent Success', 3000, 'green white-text');
                         sendFreezeOrderModal.deactivate();
-                        angular.element(document.querySelector("body")).removeClass("ovh");
 
                     } else {
                         Materialize.toast('Sent Error', 3000, 'red white-text');
