@@ -38,7 +38,6 @@ angular.module('DDKApp').controller('walletsController', ['$scope', '$rootScope'
             destroy: function () {
             }
         });
-        angular.element(document.querySelector("body")).addClass("ovh");
     }
 
     $scope.confirmRequest = function (transactionId, pass) {
@@ -57,7 +56,6 @@ angular.module('DDKApp').controller('walletsController', ['$scope', '$rootScope'
 
                     }
                 })
-                angular.element(document.querySelector("body")).addClass("ovh");
             }
         })
     }
@@ -73,7 +71,6 @@ angular.module('DDKApp').controller('walletsController', ['$scope', '$rootScope'
                     }
                 }
             })
-            angular.element(document.querySelector("body")).addClass("ovh");
         } else {
             $scope.confirmRequest(transactionId);
         }

@@ -14,7 +14,6 @@ angular.module('DDKApp').controller('addDappModalController', ["$scope", "$http"
 
     $scope.close = function () {
         addDappModal.deactivate();
-        angular.element(document.querySelector("body")).removeClass("ovh");
     }
 
     $scope.passcheck = function (fromSecondPass) {
@@ -99,7 +98,6 @@ angular.module('DDKApp').controller('addDappModalController', ["$scope", "$http"
                     }
                     Materialize.toast('Transaction sent', 3000, 'green white-text');
                     addDappModal.deactivate();
-                    angular.element(document.querySelector("body")).removeClass("ovh");
                 }
             });
         }

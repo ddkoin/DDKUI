@@ -6,7 +6,7 @@
                     <div class="card-content">
                         <div class="material-modal-content" ng-show="step == 1">
                             <div class="modal-header modal-iconed">
-                                <span class="modal-log">DDKOIN</span>
+                                <span class="modal-log">DDK</span>
                                 <div class="close-modal" ng-click="close()">
                                     <span class="sr-only">
                                         <translate>Close modal</translate>
@@ -22,12 +22,14 @@
                                 </div>
                             </div>
                             <div class="modal-body clearfix">
-                                <div class="left-margin-40 right-margin-40 top-margin-40 bottom-margin-40">
+                                <div class="field-padding">
                                     <div class="input-field passphraseGeneration">
-                                        <textarea id="newPassphrase" class="materialize-textarea" ng-model="newPassphrase" autofocus readonly ng-trim="false"></textarea>
+                                        <textarea id="newPassphrase" class="materialize-textarea" ng-model="newPassphrase"
+                                            autofocus readonly ng-trim="false"></textarea>
                                         <label for="newPassphrase" ng-class="{'active':activeLabel(newPassphrase)}">Passphrase</label>
                                     </div>
                                 </div>
+
                                 <div class="left-margin-40 right-margin-40 top-margin-40 bottom-margin-40">
                                     <div class="row clearfix">
                                         <div class="col-md-12">
@@ -60,11 +62,14 @@
                                             class="btn-flat" />
                                     </li>
                                     <li>
-                                        <input type="submit" value="{{'NEXT STEP' | translate}}" ng-click="goToStep(2,emailId)" class="btn-flat blue-link" />
+                                        <input type="submit" value="{{'NEXT STEP' | translate}}" ng-click="goToStep(2,emailId)"
+                                            class="btn-flat blue-link" />
                                     </li>
                                 </ul>
                             </div>
                         </div>
+
+
                         <div class="material-modal-content" ng-show="step == 2">
                             <div class="modal-header modal-iconed">
                                 <div class="close-modal" ng-click="close()">
@@ -72,7 +77,7 @@
                                         <translate>Close modal</translate>
                                     </span>
                                 </div>
-                                <span class="modal-log">DDKOIN</span>
+                                <span class="modal-log">DDK</span>
                             </div>
                             <div class="modal-header clearfix">
                                 <div>
@@ -98,7 +103,11 @@
                                 </div>
                             </div>
                             <div class="modal-body bordered">
-                                <span class="send-info-text"><translate>You are solely responsible for maintaining the confidentiality of your passphrase and account. Furthermore, you are solely responsible for any and all activities that occur under or in connection with your account or which result from access to or use of the platform using your passphrase. Each user is solely responsible for his or her transaction as DDK is open source, decentralized and distributed blockchain platform.</translate></span>
+                                <span class="send-info-text">
+                                    <translate>Make sure that you keep the passphrase safe. If you lose your passphrase
+                                        later on, your
+                                        account can't be restored and all your funds will be lost.</translate>
+                                </span>
                             </div>
                             <div class="modal-body bordered clearfix">
                                 <ul class="nav modal-buttons pull-right">
@@ -107,7 +116,8 @@
                                             class="btn-flat" />
                                     </li>
                                     <li>
-                                        <input type="submit" value="{{'CONFIRM' | translate}}" ng-click="login(repeatPassphrase,emailId)" class="btn-flat blue-link" ng-class="{'disabled': sending}" ng-disabled="sending" />
+                                        <input type="submit" value="{{'CONFIRM' | translate}}" ng-click="login(repeatPassphrase,emailId)"
+                                            class="btn-flat blue-link" ng-class="{'disabled': sending}" ng-disabled="sending" />
                                     </li>
                                 </ul>
                             </div>

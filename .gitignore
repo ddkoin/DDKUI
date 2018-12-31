@@ -1,5 +1,6 @@
 .vscode/
 testUsers.json
+config.json
 node_modules/
 package-lock.json
 public/package-lock.json

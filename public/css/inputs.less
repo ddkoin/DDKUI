@@ -34,7 +34,6 @@ input.clipboard.publicKey {
   }
 }
 
-
 .switch.margin {
   margin-top: 10px;
 }
@@ -44,12 +43,12 @@ input.clipboard.publicKey {
 }
 
 .switch.blue-switch label input[type=checkbox]:checked + .lever:after {
-  background-color: lighten(@white, 20%);
+  background-color: lighten(@blue, 20%);
 }
 
 [type=checkbox].filled-in.violet:checked + label:after {
-  /* border: 2px solid @white;
-  background-color: @blue; */
+  border: 2px solid @blue;
+  background-color: @blue;
 }
 
 label {
@@ -60,16 +59,12 @@ label {
 
 .passphraseGeneration.input-field {
   textarea.materialize-textarea {
-    /* margin: 0; */
-    height: auto!important;
-    min-height: inherit;
-    color: #515151;
-    font-size: 15px;
+    margin: 0;
     &.invalid:focus {
       border-bottom: 1px solid #F44336;
     }
     &:focus {
-      border-bottom: 1px solid #337ab7;
+      border-bottom: 1px solid #7e57c2;
     }
   }
   label {
@@ -84,7 +79,7 @@ textarea.materialize-textarea {
   overflow-y: hidden;
   padding: 0;
   resize: none;
-  /* min-height: 3rem */
+  min-height: 3rem
 }
 
 .input-field label {
@@ -94,15 +89,15 @@ textarea.materialize-textarea {
 /* Checkbox */
 [type=checkbox].filled-in:checked + label:before {
   top: 2px;
-  left: 8px;
+  left: 5px;
 }
 
 [type=checkbox].filled-in:checked + label:after {
   top: 2px;
-  left: 8px;
+  left: 5px;
 }
 
 [type=checkbox].filled-in:not(:checked) + label:after {
   top: 2px;
-  left: 8px;
+  left: 5px;
 }

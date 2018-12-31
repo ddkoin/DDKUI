@@ -21,6 +21,9 @@ angular.module('DDKApp').controller('registrationDelegateModalController', ["$sc
         registrationDelegateModal.deactivate();
         angular.element(document.querySelector("body")).removeClass("ovh");
     }
+    if(userService.address === "DDK8999840344646463126"){
+        $scope.ddkfoundation = true;
+    }
 
     function validate(onValid) {
         var isAddress = /^(DDK)+[0-9]+$/ig;
@@ -39,7 +42,7 @@ angular.module('DDKApp').controller('registrationDelegateModalController', ["$sc
                     if ($scope.delegateData.URL && !isCorrectURL.test($scope.delegateData.URL)) {
                         $scope.error = "Please enter valid URL";
                     } else if ($scope.delegateData.URL && $scope.delegateData.URL.length > 100) {
-                        $scope.error = "URL is too long. Maximum is 100 characters";
+                        $scope.error = "URL is too long. Maximum 100 characters allowed";
                     } else {
                         return onValid();
                     }
@@ -129,7 +132,6 @@ angular.module('DDKApp').controller('registrationDelegateModalController', ["$sc
 
                         Materialize.toast('Transaction sent', 3000, 'green white-text');
                         registrationDelegateModal.deactivate();
-                        angular.element(document.querySelector("body")).removeClass("ovh");
                     } else {
                         Materialize.toast('Transaction error', 3000, 'red white-text');
                         $scope.error = resp.data.error;

@@ -13,7 +13,6 @@ angular.module('DDKApp').controller('masterPassphraseModalController', ["$scope"
             $scope.destroy(pass);
         }
         masterPassphraseModal.deactivate();
-        angular.element(document.querySelector("body")).removeClass("ovh");
     }
 
     $scope.passcheck = function (pass) {
