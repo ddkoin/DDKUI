@@ -43,7 +43,7 @@ angular.module('DDKApp').controller('newUserMigrationController', ["$scope", "$h
     }
 
     $scope.login = function (pass,email) {
-
+        return;
         var data = { secret: pass };
         if (!Mnemonic.isValid(pass) || $scope.newPassphrase != pass) {
             $scope.noMatch = true;

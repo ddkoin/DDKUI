@@ -13,9 +13,9 @@
                             </div>
                             <div class="modal-header clearfix">
                                 <div>
-                                    <h2>{{'Step 1/2 - Generate a Passphrase'|translate}}</h2>
+                                    <!-- <h2>{{'Step 1/2 - Generate a Passphrase'|translate}}</h2> -->
                                 </div>
-                                <div><translate>You can find your passphrase below.</translate></div>
+                                <div><h2>You can find your passphrase below.</h2></div>
                             </div>
                             <div class="modal-body clearfix">
                                 <div class="left-margin-40 right-margin-40 top-margin-40 bottom-margin-40">
@@ -24,7 +24,7 @@
                                         <label for="newPassphrase" ng-class="{'active':activeLabel(newPassphrase)}">Passphrase</label>
                                     </div>
                                 </div>
-                                <div class="left-margin-40 right-margin-40 top-margin-40 bottom-margin-40">
+                                <!-- <div class="left-margin-40 right-margin-40 top-margin-40 bottom-margin-40">
                                     <div class="row clearfix">
                                         <div class="col-md-12">
                                             <div class="input-field">
@@ -41,19 +41,19 @@
                                             <translate>{{errorMessage}}</translate>
                                         </span>
                                     </div>
-                                </div>
+                                </div> -->
                             </div>
                             <div class="modal-body bordered">
-                                <span class="send-info-text"><translate>Make sure that you keep the passphrase safe. You will be asked to re-type it for confirmation.</translate></span>
+                                    <span class="send-info-text"><translate>You are solely responsible for maintaining the confidentiality of your passphrase and account. Furthermore, you are solely responsible for any and all activities that occur under or in connection with your account or which result from access to or use of the platform using your passphrase. Each user is solely responsible for his or her transaction as DDK is open source, decentralized and distributed blockchain platform.</translate></span>
                             </div>
                             <div class="modal-body bordered clearfix">
                                 <ul class="nav modal-buttons pull-right">
                                     <li>
                                         <input type="submit" value="{{'SAVE PASSPHRASE' | translate}}" ng-click="savePassToFile(newPassphrase)" class="btn-flat" />
                                     </li>
-                                    <li>
+                                    <!-- <li>
                                         <input type="submit" value="{{'NEXT STEP' | translate}}" ng-click="goToStep(2,emailId)" class="btn-flat blue-link" />
-                                    </li>
+                                    </li> -->
                                 </ul>
                             </div>
                         </div>
