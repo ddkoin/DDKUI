@@ -30,7 +30,7 @@ angular.module('DDKApp').controller('existingETPSUserController', ['$scope', '$r
     $scope.forgotWindow = function () {
         $scope.loginPage = false;
         $scope.forgotPasswordPage = true;
-        $scope.errorMessage = false;
+        $scope.errorMessage = false; 
         $scope.username = '';
         $scope.password = '';
         $("label").removeClass("active");
@@ -62,6 +62,8 @@ angular.module('DDKApp').controller('existingETPSUserController', ['$scope', '$r
         let post = "username=" + btoa(username) + "&email=" + btoa(email);
         let url = config.domainName + '/existingETPSUser';
         $scope.forgotErrorMessage = false;
+        $scope.forgotErrorMessage = "Please try again later";
+       /*
         $http.post($rootScope.serverUrl + "/api/accounts/forgotEtpsPassword", {
             data: post,
             link: url
@@ -77,6 +79,7 @@ angular.module('DDKApp').controller('existingETPSUserController', ['$scope', '$r
         }).error(function (err) {
             $scope.forgotErrorMessage = err;
         });
+        */
     }
 
     // function to validate existing ETPS user from ETP_test database
@@ -89,7 +92,7 @@ angular.module('DDKApp').controller('existingETPSUserController', ['$scope', '$r
 
         $scope.errorMessageAdmin = false;
         var post = "username=" + btoa(username) + "&password=" + btoa(password);
-
+       
         $http.post($rootScope.serverUrl + "/api/accounts/existingETPSUser/validate", {
 
             data: post
@@ -104,7 +107,9 @@ angular.module('DDKApp').controller('existingETPSUserController', ['$scope', '$r
                     } else {
                         var userInfo = {};
                         Object.assign(userInfo, resp.userInfo);
-                        $scope.newUser(userInfo);
+                       //disabed for a while
+                      //  $scope.newUser(userInfo);
+                      $scope.errorMessage = 'Please try again later';
                     }
                 }
             })
