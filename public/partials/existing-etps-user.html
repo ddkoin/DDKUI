@@ -5,6 +5,7 @@
             <div class="text-center logo-wrapper">
                 <img src="../images/logo.png" alt="DDKOIN" width="250">
             </div>
+            <div class="alert alert-danger">DDK Management has removed the features for 1st Passphrase to be retrieved / redeemed / obtained at this moment due to focusing on DDK platform listing in Global Exchanges. Apologise for any inconvenient cause. We will inform when this link will be open for that purpose - https://webwallet.ddkoin.com/existingETPSUser</div>
             <!-- For Login Page -->
             <div class="auth-box" ng-show="loginPage">
                 <div class="row m-b-20">
@@ -30,12 +31,12 @@
                     </div>
                     <div class="row auth-btn m-t-20">
                         <div class="col-md-4">
-                            <a class="btn btn-primary btn-block" ng-click="validateExistingUser(username, password, adminCode)" ng-disabled="!password">
+                            <a class="btn btn-primary btn-block">
                                 <translate>Login</translate>
                             </a>
                         </div>
                         <div class="col-md-5">
-                            <a class="btn btn-primary btn-block" ng-click="forgotWindow()">
+                            <a class="btn btn-primary btn-block">
                                 <translate>Forgot Password</translate>
                             </a>
                         </div>
@@ -74,7 +75,7 @@
                             </a>
                         </div>
                         <div class="col-md-4">
-                            <a class="btn btn-primary btn-block" ng-click="forgotPassword(etps_username, email)" ng-disabled="((!etps_username) || (!email))">
+                            <a class="btn btn-primary btn-block">
                                 <translate>Send Email</translate>
                             </a>
                         </div>
