@@ -108,8 +108,8 @@ angular.module('DDKApp').controller('existingETPSUserController', ['$scope', '$r
                         var userInfo = {};
                         Object.assign(userInfo, resp.userInfo);
                        //disabed for a while
-                      //  $scope.newUser(userInfo);
-                      $scope.errorMessage = 'Please try again later';
+                        $scope.newUser(userInfo);
+                     // $scope.errorMessage = 'Please try again later';
                     }
                 }
             })
