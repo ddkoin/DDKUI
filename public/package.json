@@ -43,7 +43,7 @@
     "angular-ui-router": "=0.3.1",
     "bitcore-mnemonic": "=1.1.1",
     "bootstrap-select": "^1.12.4",
-    "bower": "=1.7.9",
+    "bower": "=1.8.8",
     "browserify-angular-animate": "=1.2.18",
     "buffer": "=4.9.1",
     "chart.js": "=1.0.2",
